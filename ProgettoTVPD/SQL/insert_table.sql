@@ -5,8 +5,8 @@ insert into amministratore values('A0002', 'admin2', 'Pass02$');
 
 -- Inserimento docenti:
 
-insert into docente values(1, 'Marco', 'Zanchetta', 'cv');
-insert into docente values(2, 'Gabriele', 'Maniaci', 'cv');
-insert into docente values(3, 'Gian', 'Battista', 'cv');
-insert into docente values(4, 'Lucas', 'Texeira', 'cv');
-insert into docente values(5, 'Alvise', 'Alvise', 'cv');
+insert into docente values(1, 'Marco', 'Zanchetta','MarcoZanchetta.pdf');
+insert into docente values(2, 'Gabriele', 'Maniaci','GabrieleManiaci.pdf');
+insert into docente values(3, 'GianBattista', 'Lorenzato', 'GianBattistaLorenzato.pdf');
+insert into docente values(4, 'Lucas', 'Teixeira', 'LucasTeixeira');
+insert into docente values(5, 'Alvise', 'Battistich', 'AlviseBattistich');
