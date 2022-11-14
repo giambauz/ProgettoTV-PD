@@ -14,17 +14,17 @@ create table docente(
 );
 
 create table corso(
-codCorso int,
-constraint p_codCorso primary key(codCorso),
-nomeCorso varchar2(30) not null,
-dataInizioCorso date not null,
-dataFineCorso date not null,
-costoCorso number(7,2) not null,
-commentiCorso varchar2(30) default 'nessun commento',
-aulaCorso varchar2(30) not null,
-codDocente int,
-constraint f_codDocente foreign key(codDocente) references docente(codDocente),
-check ((dataFineCorso-1)>dataInizioCorso)
+	codCorso int,
+	constraint p_codCorso primary key(codCorso),
+	nomeCorso varchar2(30) not null,
+	dataInizioCorso date not null,
+	dataFineCorso date not null,
+	costoCorso number(7,2) not null,
+	commentiCorso varchar2(30) default 'nessun commento',
+	aulaCorso varchar2(30) not null,
+	codDocente int,
+	constraint f_codDocente foreign key(codDocente) references docente(codDocente),
+	check ((dataFineCorso-1)>dataInizioCorso)
 );
 	
 
@@ -37,11 +37,11 @@ create table corsista(
 );
 
 create table corso_Corsista(
-codCorso int,
-codCorsista int,
-constraint f_codCorso foreign key(codCorso) references corso(codCorso),
-constraint f_codCorsista foreign key(codCorsista) references corsista(codCorsista),
-constraint p_corso_corsista primary key(codCorso, codCorsista)
+	codCorso int,
+	codCorsista int,
+	constraint f_codCorso foreign key(codCorso) references corso(codCorso),
+	constraint f_codCorsista foreign key(codCorsista) references corsista(codCorsista),
+	constraint p_corso_corsista primary key(codCorso, codCorsista)
 );
 
 create sequence corso_seq;
