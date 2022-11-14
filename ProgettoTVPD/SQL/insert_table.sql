@@ -1,7 +1,7 @@
 -- Inserimento amministratori:
 
-insert into amministratore values('A0001', 'admin1', 'Pass01$');
-insert into amministratore values('A0002', 'admin2', 'Pass02$');
+insert into amministratore values('41H81aa3154%294daL42s3dW4d7f9u86940pd2Qdc$5b286Z', 'admin1', 'admin1'); --A001
+insert into amministratore values('40H74aae1e5%bb46dLe6s1bW3572fu6b998pd4Q54$662e8Z', 'admin2', 'admin2'); --A002
 
 -- Inserimento docenti:
 

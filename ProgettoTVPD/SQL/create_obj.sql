@@ -1,5 +1,5 @@
 create table amministratore(
-	codAdmin varchar2(30),
+	codAdmin varchar2(500),
 	constraint p_codAdmin primary key(codAdmin),
 	nomeAdmin varchar2(30) not null,
 	cognomeAdmin varchar2(30) not null
