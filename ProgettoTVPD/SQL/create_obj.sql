@@ -47,3 +47,12 @@ create sequence corso_seq;
 
 create sequence corsista_seq;
 
+create view frequenze(corso, totFrequenze) as
+	select codCorso, count(codCorsista) 
+	from corso_corsista 
+	group by codCorso;
+
+create view corsiPerDocente(docente, totCorsi) as
+	select codDocente, count(codCorso) 
+	from corso 
+	group by codDocente;
