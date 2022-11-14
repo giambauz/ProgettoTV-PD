@@ -1,5 +1,6 @@
 package com.betacom.trevisopadova.businesscomponent;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
@@ -11,7 +12,7 @@ import com.betacom.trevisopadova.businesscomponent.model.Corso;
 public class CorsoBC {
 	private Connection conn;
 	
-	public CorsoBC() {
+	public CorsoBC() throws ClassNotFoundException, IOException {
 		conn = DBAccess.getConnection();
 	}
 	
