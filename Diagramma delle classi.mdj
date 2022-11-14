@@ -6711,7 +6711,7 @@
 											"top": 876,
 											"width": 189.6552734375,
 											"height": 13,
-											"text": "«void»+create(CorsistaCorso cc)",
+											"text": "«void»+create(CorsoCorsista cc)",
 											"horizontalAlignment": 0
 										}
 									],
@@ -18812,8 +18812,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGEa2a3CJ8rBn0="
 									},
-									"name": "CorsistaCorso cc",
-									"type": ""
+									"name": "CorsoCorsista cc"
 								}
 							]
 						}
