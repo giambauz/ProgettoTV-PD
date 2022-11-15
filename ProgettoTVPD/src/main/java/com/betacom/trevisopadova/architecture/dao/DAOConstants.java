@@ -13,7 +13,7 @@ public interface DAOConstants {
 	String SELECT_CORSO_BY_CORSISTA="select * from corso where codCorso=(select codCorso from corso_corsista where codCorsista=?)";
 	String SELECT_CORSO_DOPO_DATAODIERNA="select * from corso where dataInizioCorso>?";
 	String SELECT_CORSO_PIU_FREQUENTATO="select * from corso where codCorso in (select corso from frequenze where totFrequenze >= all (select totFrequenze from frequenze))";
-	String SELECT_CORSO_ULTIMA_DATA="select * from corso where dataInizioCorso >= all (select dataInizioCorso from corso)";
+	String SELECT_CORSO_ULTIMA_DATA="select dataInizioCorso from corso where dataInizioCorso >= all (select dataInizioCorso from corso)";
 	String SELECT_DOCENTE_CONPIU_CORSI="select * from docente where codDocente in (select docente from corsiPerDocente where totCorsi >= all (select totCorsi from corsiPerDocente))";
 	String SELECT_DURATA_MEDIA_CORSI = "select avg(durata) from durataCorsi";
 	String SELECT_CORSO_DISPONIBILE="select * from corso where codCorso in (select corso from frequenze where totFrequenze<12)";
