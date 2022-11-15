@@ -3,6 +3,7 @@ package test.com.betacom.trevisopadova.businesscomponent.utilities;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,7 @@ class LoginTest {
 	private static Login login;
 
 	@Test
-	void test() {
+	void test() throws SQLException {
 		
 		String nomeAdmin = "admin1";
 		String cognomeAdmin = "admin1";

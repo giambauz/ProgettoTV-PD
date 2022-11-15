@@ -12,7 +12,7 @@ import com.betacom.trevisopadova.businesscomponent.model.Corso;
 public class CorsoBC {
 	private Connection conn;
 	
-	public CorsoBC() throws ClassNotFoundException, IOException {
+	public CorsoBC() throws ClassNotFoundException, IOException, SQLException {
 		conn = DBAccess.getConnection();
 	}
 	
