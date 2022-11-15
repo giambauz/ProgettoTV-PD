@@ -11,11 +11,16 @@ import com.betacom.trevisopadova.businesscomponent.model.CorsoCorsista;
 public class CorsoCorsistaBC {
 	Connection conn;
 	
-	public CorsoCorsistaBC() throws ClassNotFoundException, IOException {
+	public CorsoCorsistaBC() throws ClassNotFoundException, IOException, SQLException {
 		conn = DBAccess.getConnection();
 	}
 	
 	public void create(CorsoCorsista cc) throws SQLException {
 		CorsoCorsistaDAO.getFactory().create(conn, cc);
 	}
+	
+	public void delete(CorsoCorsista cc) throws SQLException {
+		CorsoCorsistaDAO.getFactory().delete(conn, cc);
+	}
+	
 }
