@@ -26,7 +26,7 @@ public class CreateCorsoServlet extends HttpServlet {
 			try {
 				AmministratoreFacade.getInstance().create(corso);
 				//TODO redirect to the correct page
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("test.jsp");
 			} catch (ClassNotFoundException | SQLException | IOException e) {
 				e.printStackTrace();
 			}
