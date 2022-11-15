@@ -22,6 +22,7 @@ class CorsistaDAOTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
+		conn = DBAccess.getConnection();
 		idGen = CorsistaIdGenerator.getInstance();
 		corsista = new Corsista();
 		corsista.setNomeCorsista("Lucas");
@@ -32,9 +33,14 @@ class CorsistaDAOTest {
 	}
 	
 	@Test
-	void testCreate() {
+	void testCorsista() {
 		try {
-			CorsistaDAO.getFactory().create(DBAccess.getConnection(), corsista);
+			CorsistaDAO.getFactory().create(conn, corsista);
+			System.out.println(CorsistaDAO.getFactory().getCount(conn));
+			Corsista[] corsisti = CorsistaDAO.getFactory().getAll(conn);
+			for(int i=0;i<corsisti.length;i++) {
+				System.out.println(corsisti[i].toString());
+			}
 		}catch(Exception exc) {
 			exc.printStackTrace();
 			fail("Motivo: " + exc.getMessage());

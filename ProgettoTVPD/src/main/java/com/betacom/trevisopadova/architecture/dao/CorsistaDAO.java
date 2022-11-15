@@ -10,7 +10,7 @@ import javax.sql.rowset.RowSetProvider;
 
 import com.betacom.trevisopadova.businesscomponent.model.Corsista;
 
-public class CorsistaDAO implements DAOConstants{
+public class CorsistaDAO implements DAOConstants,Validator{
 	private CachedRowSet rowSet;
 	private Statement stmt;
 	private ResultSet rs;
@@ -80,6 +80,12 @@ public class CorsistaDAO implements DAOConstants{
 		rs.close();
 		
 		return count;
+	}
+
+	@Override
+	public void validate(Corsista entity) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
