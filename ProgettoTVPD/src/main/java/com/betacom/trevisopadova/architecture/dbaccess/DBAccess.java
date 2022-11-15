@@ -18,6 +18,7 @@ public class DBAccess {
 			p.load(input);
 			Class.forName(p.getProperty("jdbcDriver"));
 			conn = DriverManager.getConnection(p.getProperty("jdbcURL"),p.getProperty("username"), p.getProperty("password"));
+			conn.setAutoCommit(false);
 		}catch(SQLException sql) {
 			sql.printStackTrace();
 			System.out.println(sql.getMessage());
