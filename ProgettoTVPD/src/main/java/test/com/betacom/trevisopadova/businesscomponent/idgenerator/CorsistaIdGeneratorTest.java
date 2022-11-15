@@ -16,7 +16,6 @@ class CorsistaIdGeneratorTest {
 			System.out.println(idGen.getNextId());
 			System.out.println(idGen.getNextId());
 			System.out.println(idGen.getNextId());
-			
 		} catch (ClassNotFoundException | IOException | SQLException e) {
 			e.printStackTrace();
 		}
