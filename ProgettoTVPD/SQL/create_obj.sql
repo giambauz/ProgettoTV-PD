@@ -57,3 +57,7 @@ create view corsiPerDocente(docente, totCorsi) as
 	select codDocente, count(codCorso) 
 	from corso 
 	group by codDocente;
+	
+create view durataCorsi(corso,durata) as
+	select codCorso, dataFineCorso-dataInizioCorso
+	from corso;
