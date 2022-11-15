@@ -10,7 +10,7 @@ import java.util.Properties;
 public class DBAccess {
 	private static Connection conn;
 	
-	public static Connection getConnection() throws IOException, ClassNotFoundException {
+	public static Connection getConnection() throws IOException, ClassNotFoundException, SQLException {
 		try {
 			ClassLoader cl = Thread.currentThread().getContextClassLoader();
 			InputStream input = cl.getResourceAsStream("properties/config.properties");
@@ -21,6 +21,7 @@ public class DBAccess {
 		}catch(SQLException sql) {
 			sql.printStackTrace();
 			System.out.println(sql.getMessage());
+			throw sql;
 		}
 		return conn;
 	}
