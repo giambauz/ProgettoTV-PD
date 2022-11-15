@@ -17,7 +17,7 @@ public class Login implements DAOConstants {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	
-	public Login() throws ClassNotFoundException, IOException {
+	public Login() throws ClassNotFoundException, IOException, SQLException {
 		
 		conn = DBAccess.getConnection();
 		
