@@ -7,16 +7,18 @@ import java.util.Date;
 
 import com.betacom.trevisopadova.architecture.dao.CorsoDAO;
 import com.betacom.trevisopadova.architecture.dbaccess.DBAccess;
+import com.betacom.trevisopadova.businesscomponent.idgenerator.CorsoIdGenerator;
 import com.betacom.trevisopadova.businesscomponent.model.Corso;
 
 public class CorsoBC {
 	private Connection conn;
 	
-	public CorsoBC() throws ClassNotFoundException, IOException {
+	public CorsoBC() throws SQLException, ClassNotFoundException, IOException {
 		conn = DBAccess.getConnection();
 	}
 	
-	public void create(Corso corso) throws SQLException {
+	public void create(Corso corso) throws SQLException, ClassNotFoundException, IOException {
+		corso.setCodCorso(CorsoIdGenerator.getInstance().getNextId());
 		CorsoDAO.getFactory().create(conn, corso);
 	}
 	

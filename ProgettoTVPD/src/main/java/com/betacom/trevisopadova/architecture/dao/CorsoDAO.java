@@ -78,7 +78,9 @@ public class CorsoDAO implements DAOConstants{
 	
 	public Corso[] getAllDopoDataOdierna(Connection conn, Date data) throws SQLException {
 		Corso[] corsi = null;
-		ps = conn.prepareStatement(SELECT_CORSO_DOPO_DATAODIERNA);
+		ps = conn.prepareStatement(SELECT_CORSO_DOPO_DATAODIERNA,
+				ResultSet.TYPE_SCROLL_INSENSITIVE,
+				ResultSet.CONCUR_READ_ONLY);
 		ps.setDate(1, new java.sql.Date(data.getTime()));
 		rs = ps.executeQuery();
 		rs.last();				
@@ -90,7 +92,7 @@ public class CorsoDAO implements DAOConstants{
 			corso.setCodCorso(rs.getLong(1));
 			corso.setNomeCorso(rs.getString(2));
 			corso.setDataInizioCorso(new Date(rs.getDate(3).getTime()));
-			corso.setDataFineCorso(new  Date(rs.getDate(4).getTime()));
+			corso.setDataFineCorso(new Date(rs.getDate(4).getTime()));
 			corso.setCostoCorso(rs.getDouble(5));
 			corso.setCommentiCorso(rs.getString(6));
 			corso.setAulaCorso(rs.getString(7));
