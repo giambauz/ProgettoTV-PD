@@ -8593,7 +8593,7 @@
 											"top": 826,
 											"width": 300.9677734375,
 											"height": 13,
-											"text": "+AmministratoreFacade()",
+											"text": "-AmministratoreFacade()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -18812,7 +18812,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGEa2a3CJ8rBn0="
 									},
-									"name": "CorsoCorsista cc"
+									"name": "CorsoCorsista cc",
+									"type": ""
 								}
 							]
 						}
@@ -19331,7 +19332,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGEa2AeCdj2+os="
 							},
-							"name": "AmministratoreFacade"
+							"name": "AmministratoreFacade",
+							"visibility": "private"
 						},
 						{
 							"_type": "UMLOperation",
