@@ -8,6 +8,7 @@ public interface DAOConstants {
 	String SELECT_CORSISTASEQ="select corsista_seq from dual";
 	String SELECT_AMMINISTRATORE_BYID="select * from amministratore where codAdmin=?";
 	String DELETE_CORSO="delete from corso where codCorso=?";
+	String DELETE_CORSO_CORSISTA="delete from corso_corsista where codCorsista=?";
 	String SELECT_COUNT_CORSISTA="select count(*) from corsista";
 	String SELECT_CORSO_BY_CORSISTA="select * from corso where codCorso=(select codCorso from corso_corsista where codCorsista=?)";
 	String SELECT_CORSO_DOPO_DATAODIERNA="select * from corso where dataInizioCorso>sysdate";
