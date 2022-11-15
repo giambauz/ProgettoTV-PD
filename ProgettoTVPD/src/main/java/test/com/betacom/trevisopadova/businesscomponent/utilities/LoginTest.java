@@ -1,4 +1,4 @@
-package test.betacom.trevisopadova.businesscomponent.utilities;
+package test.com.betacom.trevisopadova.businesscomponent.utilities;
 
 import static org.junit.Assert.fail;
 
@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
+import com.betacom.trevisopadova.businesscomponent.model.Amministratore;
 import com.betacom.trevisopadova.businesscomponent.security.AlgoritmoCodiceAccesso;
 import com.betacom.trevisopadova.businesscomponent.utilities.Login;
 
@@ -16,22 +17,22 @@ class LoginTest {
 	@Test
 	void test() {
 		
-		String nomeAdmin = "admin2";
-		String cognomeAdmin = "admin2";
-		String codiceAdmin = AlgoritmoCodiceAccesso.convertiMD5("A002");
+		String nomeAdmin = "admin1";
+		String cognomeAdmin = "admin1";
+		String codAdmin = AlgoritmoCodiceAccesso.convertiMD5("A001");
 		
-		String amministratorepass = null;
+		Amministratore amministratore = null;
 		
-		if(nomeAdmin != null && cognomeAdmin != null && codiceAdmin != null) {
+		if(nomeAdmin != null && cognomeAdmin != null && codAdmin != null) {
 			
 			try {
 			
 				login = new Login();
-				amministratorepass = login.getAdmministratorePass(nomeAdmin, cognomeAdmin);
+				amministratore = login.getAmministratorePass(codAdmin);
 				
-				if(amministratorepass != null) {
+				if(amministratore != null) {
 					
-					if(amministratorepass.equals(codiceAdmin)) 
+					if(amministratore.getNomeAdmin().equals(nomeAdmin) && amministratore.getNomeAdmin().equals(cognomeAdmin)) 
 						System.out.println("Accesso esegito con successo");
 					else 
 						fail("Accesso negato");

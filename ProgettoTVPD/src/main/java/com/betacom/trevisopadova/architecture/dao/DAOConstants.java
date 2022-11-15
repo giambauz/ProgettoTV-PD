@@ -8,4 +8,14 @@ public interface DAOConstants {
 	String SELECT_CORSISTASEQ="select corsista_seq from dual";
 	String SELECT_AMMINISTRATORE_BYID="select * from amministratore where codAdmin=?";
 	String DELETE_CORSO="delete from corso where codCorso=?";
+	String DELETE_CORSO_CORSISTA="delete from corso_corsista where codCorsista=?";
+	String SELECT_COUNT_CORSISTA="select count(*) from corsista";
+	String SELECT_CORSO_BY_CORSISTA="select * from corso where codCorso=(select codCorso from corso_corsista where codCorsista=?)";
+	String SELECT_CORSO_DOPO_DATAODIERNA="select * from corso where dataInizioCorso>sysdate";
+	String SELECT_CORSO_PIU_FREQUENTATO="select * from corso where codCorso in (select corso from frequenze where totFrequenze >= all (select totFrequenze from frequenze))";
+	String SELECT_CORSO_ULTIMA_DATA="select * from corso where dataInizioCorso >= all (select dataInizioCorso from corso)";
+	String SELECT_DOCENTE_CONPIU_CORSI="select * from docente where codDocente in (select docente from corsiPerDocente where totCorsi >= all (select totCorsi from corsiPerDocente))";
+	String SELECT_DURATA_MEDIA_CORSI = "select avg(durata) from durataCorsi";
+	String SELECT_CORSO_DISPONIBILE="select * from corso where codCorso in (select corso from frequenze where totFrequenze<12)";
+	String SELECT_COUNT_COMMENTI="select count(commentiCorso) from corso";
 }

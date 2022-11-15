@@ -2,6 +2,7 @@ package com.betacom.trevisopadova.businesscomponent;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import com.betacom.trevisopadova.architecture.dao.CorsoCorsistaDAO;
 import com.betacom.trevisopadova.architecture.dbaccess.DBAccess;
@@ -14,7 +15,7 @@ public class CorsoCorsistaBC {
 		conn = DBAccess.getConnection();
 	}
 	
-	public void create(CorsoCorsista cc) {
+	public void create(CorsoCorsista cc) throws SQLException {
 		CorsoCorsistaDAO.getFactory().create(conn, cc);
 	}
 }
