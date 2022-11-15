@@ -84,7 +84,7 @@ public class CorsistaDAO implements DAOConstants,Validator{
 
 	@Override
 	public void validate(Corsista entity) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	

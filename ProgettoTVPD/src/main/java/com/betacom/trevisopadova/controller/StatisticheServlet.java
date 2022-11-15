@@ -12,7 +12,7 @@ public class StatisticheServlet extends HttpServlet {
 	private static final long serialVersionUID = -3414050275627459010L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

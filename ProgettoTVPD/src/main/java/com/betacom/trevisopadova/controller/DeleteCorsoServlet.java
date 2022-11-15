@@ -25,7 +25,7 @@ public class DeleteCorsoServlet extends HttpServlet {
 		if (corso != null) {
 			try {
 				AmministratoreFacade.getInstance().delete(corso);
-				//TODO redirect to the correct page
+				
 				response.sendRedirect("index.jsp");
 			} catch (ClassNotFoundException | SQLException | IOException e) {
 				e.printStackTrace();

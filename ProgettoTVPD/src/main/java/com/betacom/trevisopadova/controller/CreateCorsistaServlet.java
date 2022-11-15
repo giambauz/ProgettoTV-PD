@@ -14,7 +14,7 @@ public class CreateCorsistaServlet extends HttpServlet {
 	private static final long serialVersionUID = 7614963766060784280L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 	}
 
 }
