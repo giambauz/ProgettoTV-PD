@@ -16,15 +16,16 @@ import com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade;
 import com.betacom.trevisopadova.businesscomponent.model.Corso;
 
 
-@WebServlet("/rimuoviCorso")
-public class DeleteCorsoServlet extends HttpServlet {
-	private static final long serialVersionUID = 3625018641779508126L;
+@WebServlet("/rimuoviCorsi")
+public class DeleteCorsiServlet extends HttpServlet {
+	private static final long serialVersionUID = 5973469864029878549L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Corso corso = getCorso(request);
-		if (corso != null) {
+		Corso[] corsi = getCorsi(request);
+		if (corsi != null) {
 			try {
-				AmministratoreFacade.getInstance().delete(corso);
+				for (Corso c : corsi)
+					AmministratoreFacade.getInstance().delete(c);
 				response.sendRedirect("reportCorsi.jsp");
 			} catch (ClassNotFoundException | SQLException | IOException e) {
 				e.printStackTrace();
@@ -33,13 +34,16 @@ public class DeleteCorsoServlet extends HttpServlet {
 			
 	}
 	
-	private Corso getCorso(HttpServletRequest request) {
-		Corso corso = null;
-		long codCorso = Long.parseLong(request.getParameter("codCorso"));
-			
-		corso = new Corso();
-		corso.setCodCorso(codCorso);
-		return corso;
+	private Corso[] getCorsi(HttpServletRequest request) {
+		Corso[] corsi = null;
+		String[] parametersCodCorso= request.getParameterValues("codCorso");
+		corsi = new Corso[parametersCodCorso.length];
+		for (int i = 0; i < corsi.length; i++) {
+			Corso corso = new Corso();
+			corso.setCodCorso(Long.parseLong(parametersCodCorso[i]));
+			corsi[i] = corso;
+		}
+		return corsi;
 	}
 
 }
