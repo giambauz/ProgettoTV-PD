@@ -11,9 +11,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <title>Report corsi</title>
+</head>
+<body>
+<div class="container">
 <form action="rimuoviCorsi" method="post">
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Nome</th>
@@ -23,7 +35,7 @@
       <th>Commenti</th>
       <th>Aula</th>
       <th>Docente</th>
-      <th><input type="submit" value="Cancella selezionati"></th>
+      <th><input type="submit" value="Cancella selezionati" class="btn btn-warning"></th>
     </tr>
   </thead>
   <tbody>
@@ -39,7 +51,11 @@
       <th><%= c.getAulaCorso() %></th>
       <th><%= c.getCodDocente() %></th>
       <th>
-         <input type="checkbox" name="codCorso" value="<%= c.getCodCorso() %>">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="codCorso" value="<%= c.getCodCorso() %>"> Seleziona
+          </label>
+        </div>
       </th>
     </tr>
 <%
@@ -48,8 +64,6 @@
   </tbody>
 </table>
 </form>
-</head>
-<body>
-
+</div>
 </body>
 </html>
