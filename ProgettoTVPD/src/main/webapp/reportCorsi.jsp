@@ -32,7 +32,6 @@
 </head>
 <body>
 <jsp:include page="include/navbar.jsp"></jsp:include>
-<a href="include/logout.jsp">logout</a>
 <div class="container">
 <form action="rimuoviCorsi" method="post">
 <table class="table table-hover">
