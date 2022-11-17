@@ -18,4 +18,5 @@ public interface DAOConstants {
 	String SELECT_DURATA_MEDIA_CORSI = "select avg(durata) from durataCorsi";
 	String SELECT_CORSO_DISPONIBILE="select * from corso where codCorso in (select corso from frequenze where totFrequenze<12)";
 	String SELECT_COUNT_COMMENTI="select count(commentiCorso) from corso";
+	String SELECT_CORSISTI_ISCRITTI="select * from corsista where codCorsista in (select distinct codCorsista from corso_corsista)";
 }
