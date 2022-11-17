@@ -28,6 +28,7 @@ public class CreateCorsoServlet extends HttpServlet {
 				response.sendRedirect("test.jsp");
 			} catch (ClassNotFoundException | SQLException | IOException e) {
 				e.printStackTrace();
+				System.out.println("Motivo : " + e.getMessage());
 			}
 		}
 			
