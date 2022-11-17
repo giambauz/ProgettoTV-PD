@@ -1,3 +1,4 @@
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Docente"%>
 <%@page import="java.util.Locale"%>
 <%@page import="java.text.Format"%>
 <%@page import="java.text.DateFormat"%>
@@ -14,7 +15,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Statistiche</title>
 </head>
 <body>
 <div>
@@ -182,6 +183,27 @@
     </select>
     <input type="submit" value="Elabora statistica">
 	</form>
+	<% Statistiche stats = new Statistiche(); %>
+	<table style="text-align:center;">
+	    <thead>
+	        <tr>
+	            <td>Codice docente</td>
+	            <td>Nome</td>
+	            <td>Cognome</td>
+	            <td>CV</td>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <% for(Docente d : stats.getDocenteConPiuCorsi() ){ %>
+	            <tr>
+	                <td><%= d.getCodDocente() %></td>
+	                <td><%= d.getNomeDocente() %></td>
+	                <td><%= d.getCognomeDocente() %></td>
+	                <td><%= d.getCvDocente() %></td>
+	            </tr>
+	        <% } %>
+	    </tbody>
+	</table>
 	<% } %>
 	<% if(session.getAttribute("statistica").toString().equals("corsiDisponibili")){ %>
 	<form action="/<%= application.getServletContextName() %>/statistiche" method="get">

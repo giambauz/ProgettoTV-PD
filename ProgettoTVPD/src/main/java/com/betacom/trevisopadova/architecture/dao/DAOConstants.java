@@ -16,7 +16,7 @@ public interface DAOConstants {
 	String SELECT_CORSO_ULTIMA_DATA="select dataInizioCorso from corso where dataInizioCorso >= all (select dataInizioCorso from corso)";
 	String SELECT_DOCENTE_CONPIU_CORSI="select * from docente where codDocente in (select docente from corsiPerDocente where totCorsi >= all (select totCorsi from corsiPerDocente))";
 	String SELECT_DURATA_MEDIA_CORSI = "select avg(durata) from durataCorsi";
-	String SELECT_CORSO_DISPONIBILE="select * from corso where codCorso in (select corso from frequenze where totFrequenze<12)";
+	String SELECT_CORSO_DISPONIBILE="select * from corso where codCorso in (select corso from frequenze where totFrequenze<12) and dataInizioCorso>sysdate";
 	String SELECT_COUNT_COMMENTI="select count(commentiCorso) from corso";
 	String SELECT_CORSISTI_ISCRITTI="select * from corsista where codCorsista in (select distinct codCorsista from corso_corsista)";
 }
