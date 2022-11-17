@@ -13,8 +13,8 @@ import com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade;
 import com.betacom.trevisopadova.businesscomponent.model.Corso;
 
 
-@WebServlet("/rimuoviCorsi")
-public class DeleteCorsiServlet extends HttpServlet {
+@WebServlet("/rimuoviPiuCorsi")
+public class DeleteMultipleCorsoServlet extends HttpServlet {
 	private static final long serialVersionUID = 5973469864029878549L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

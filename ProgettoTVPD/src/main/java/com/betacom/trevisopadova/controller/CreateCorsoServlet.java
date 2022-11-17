@@ -29,16 +29,15 @@ public class CreateCorsoServlet extends HttpServlet {
 			} catch (ClassNotFoundException | SQLException | IOException e) {
 				e.printStackTrace();
 				System.out.println("Motivo : " + e.getMessage());
+				throw new ServletException(e.getMessage());
 			}
 		}
-			
 	}
 	
 	private Corso getCorso(HttpServletRequest request) {
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Corso corso = null;
 		try {
-			long codCorso = Long.parseLong(request.getParameter("codCorso"));
 			String nomeCorso = request.getParameter("nomeCorso");
 			Date dataInizioCorso = format.parse(request.getParameter("dataInizioCorso"));
 			Date dataFineCorso = format.parse(request.getParameter("dataFineCorso"));
@@ -48,7 +47,7 @@ public class CreateCorsoServlet extends HttpServlet {
 			long codDocente = Long.parseLong(request.getParameter("codDocente"));
 			
 			corso = new Corso();
-			corso.setCodCorso(codCorso);
+			corso.setCodCorso(0);
 			corso.setNomeCorso(nomeCorso);
 			corso.setDataInizioCorso(dataInizioCorso);
 			corso.setDataFineCorso(dataFineCorso);
