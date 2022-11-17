@@ -121,9 +121,11 @@ body {
 	font-size: 16px;
 	padding: 10px 40px !important;
 	background: linear-gradient(93.3deg, #41908F 0%, #0C6677 100%) !important;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 }
 .form_login .row .btn_login:hover {
-	box-shadow: inset 0px 100px 4px rgba(0, 0, 0, 0.25); 
+	transform: scale(1.1);
+	filter: grayscale(30%); 
 }
 
 .form_login .tentativi_login {
@@ -182,6 +184,7 @@ body {
 	flex-direction: column !important;
 	align-items: center !important;
 	justify-content: space-between !important;
+	padding: 0 20px;
 }
 
 .container_accessonegato .page-header{

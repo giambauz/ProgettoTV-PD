@@ -2,19 +2,25 @@
 <%
 	
 	Cookie[] cookies = request.getCookies();
-	boolean flag = false;
+	boolean flagAccesso = false;
+	boolean flagIsBlock = false;
 
-	for(int i=0; cookies !=null && i<cookies.length; i++) {
+	for(int i=0; cookies != null && i < cookies.length; i++) {
 		
-		if(cookies[i].getName().equals("nomeAdmin") && cookies[i+1].getName().equals("cognomeAdmin"))
-			flag = true;
+		if(cookies[i].getName().equals("cookieNominativo"))
+			flagAccesso = true;
+		
+		if(cookies[i].getName().equals("isBlock"))
+			flagIsBlock = true;
 		
 	}
 	
-	if(session.getAttribute("nomeAdmin") != null && session.getAttribute("cognomeAdmin") != null)
-		flag = true;
+	if(session.getAttribute("sessionNominativo") != null)
+		flagAccesso = true;
 
-	if(flag) {
+	if(!flagAccesso || flagIsBlock) 
+		response.sendRedirect("index.jsp");
+	else {
 	
 %>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
@@ -113,11 +119,5 @@
 </html>
 
 <%
-	
-	} else {
-		
-		response.sendRedirect("index.jsp");
-		
-	}
-
+	} 
 %>

@@ -1,20 +1,22 @@
+<%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%
 	
 	Cookie[] cookies = request.getCookies();
-	boolean flagBloccato = false;
+	boolean flagisBlock = false;
 	
-	for(int i=0; cookies !=null && i < cookies.length; i++) {
-		
-		if(cookies[i].getName().equals("bloccato") && cookies[i].getValue() != null)
-			flagBloccato = true;
-		
-	}
+	for(int i=0; cookies !=null && i < cookies.length; i++)
+		if(cookies[i].getName().equals("isBlock") && cookies[i].getValue() != null)
+			flagisBlock = true;
 	
-	if(!flagBloccato)
+	if(!flagisBlock){
+		
+		session.setAttribute("countTentativi", null);
+		session.setAttribute("isBlock", null);
 		response.sendRedirect("../index.jsp");
-	else {
+	
+	} else {
 		
 %>
 
@@ -46,7 +48,7 @@
 				</div>
 				
 				<div class="panel-body">
-					<p>Torna domani</p>
+					<p id="tempo">riprovare tra 30 secondi</p>
 				</div>
 				
 			</div>
