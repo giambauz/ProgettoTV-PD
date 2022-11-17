@@ -144,6 +144,33 @@
 				</div>
 			</div>
 		</div>
+		
+		<h2>Assegna corsista a corso</h2>
+		<!-- Trigger the modal with a button -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+			data-target="#myModal3">Assegna corsista a corso</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header text-center">
+						<h4 class="modal-title w-100 font-weight-bold">Assegna corsista a corso</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body mx-3">
+						
+					</div>
+					<div class="modal-footer d-flex justify-content-center">
+						<button class="btn btn-deep-orange">Assegna</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </body>
