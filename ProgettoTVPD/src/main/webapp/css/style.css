@@ -20,13 +20,6 @@ body {
   	color: #052E36;
 }
 
-/*========= Tabella Corsisti =========*/
-
-.table-lt th, .table-lt td {
-	text-align: center;
-	width: min-content;
-}
-
 /*========= Login + Error page =========*/
 
 .wallpaper_gen {
@@ -232,4 +225,11 @@ body {
 
 .navbar .logout_nav:hover{
 	box-shadow: inset 0px 100px 4px rgba(0, 0, 0, 0.25); 
+}
+
+/*========= Tabella Corsisti =========*/
+
+.table-lt th, .table-lt td {
+	text-align: center;
+	width: min-content;
 }

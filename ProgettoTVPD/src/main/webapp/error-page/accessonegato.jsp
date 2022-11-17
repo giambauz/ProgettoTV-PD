@@ -1,10 +1,6 @@
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%
-
-	/* Cookie webTracker = new Cookie("webTracker", request.getHeader("Referer"));
-	webTracker.setMaxAge(60*60*24);
-	response.addCookie(webTracker); */
 	
 	Cookie[] cookies = request.getCookies();
 	boolean flagBloccato = false;
@@ -62,56 +58,6 @@
 		</div>
 	
 	</div>
-
-	<script type="text/javascript">
-	
-		/* var contoAllaRovescia = setInterval(function() {
-			
-			
-			
-			
-			
-		}, 1000); */
-	
-		/* var hhrimanenti = 0;
-		var mmrimanenti = 0;
-		var ssrimanenti = 5;
-		
-	     var contoAllaRovescia = setInterval(function() {
-	    	 
-	    	 if(ssrimanenti != 0){
-	    		 
-	    		 ssrimanenti--;
-	    		 document.getElementById("contoAllaRovescia1").innerHTML = hhrimanenti+" : "+mmrimanenti+" : "+ssrimanenti;
-	    		 
-	    	 } else {
-	    		 
-	    		 if(mmrimanenti != 0){
-	    			 
-	    			 mmrimanenti--;
-		    		 ssrimanenti = 60;
-	    			 
-	    		 } else {
-	    			 
-	    			 if(hhrimanenti != 0){
-	    				 
-	    				 hhrimanenti--;
-	    				 mmrimanenti = 0;
-	    				 document.getElementById("contoAllaRovescia1").innerHTML = hhrimanenti+" : "+mmrimanenti+" : "+ssrimanenti;
-	    				 
-	    			 }
-	    			 
-	    		 }
-	    		 
-	    	 }
-	    	 
-	    	 if(ssrimanenti == 0 && mmrimanenti == 0 && hhrimanenti == 0){
-	    		 window.location = "accessonegato.jsp";
-	    	 }
-	    	 	
-	     }, 1000); */
-	
-	</script>
 
 </body>
 </html>

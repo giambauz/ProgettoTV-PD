@@ -1,5 +1,5 @@
 
-<%-- <%
+<%
 	
 	Cookie[] cookies = request.getCookies();
 	boolean flag = false;
@@ -16,7 +16,7 @@
 
 	if(flag) {
 	
-%> --%>
+%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade"%>
 
@@ -74,7 +74,7 @@
 </body>
 </html>
 
-<%-- <%
+<%
 	
 	} else {
 		
@@ -82,4 +82,4 @@
 		
 	}
 
-%> --%>
+%>

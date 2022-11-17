@@ -1,16 +1,10 @@
 package com.betacom.trevisopadova.architecture.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 
-import javax.sql.rowset.CachedRowSet;
-import javax.sql.rowset.RowSetProvider;
-
-import com.betacom.trevisopadova.businesscomponent.model.Corso;
 import com.betacom.trevisopadova.businesscomponent.model.Docente;
 
 public class DocenteDAO implements DAOConstants{
@@ -18,14 +12,8 @@ public class DocenteDAO implements DAOConstants{
 		return new DocenteDAO();
 	}
 
-	private CachedRowSet rowSet;
-	private PreparedStatement ps;
 	private Statement stmt;
 	private ResultSet rs;
-	
-	private DocenteDAO() throws SQLException {
-		rowSet = RowSetProvider.newFactory().createCachedRowSet();
-	}
 	
 	public Docente[] getAll(Connection conn) throws SQLException {
 		Docente[] docenti = null;
