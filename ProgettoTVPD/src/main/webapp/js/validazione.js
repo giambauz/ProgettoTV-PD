@@ -59,7 +59,8 @@ $(document).ready(function() {
 				console.log($dataInizioCorso);
 				let dataInizioCorso = new Date($dataInizioCorso);
 				let dataFineCorso = new Date(value);
-				return (Number.parseInt((dataFineCorso.getTime() - dataInizioCorso.getTime()) / (60 * 60 * 24 * 1000)) > 1);
+				let diffInGiorni = Number.parseInt(dataFineCorso.getTime() - dataInizioCorso.getTime()) / (60 * 60 * 24 * 1000);
+				return (diffInGiorni > 1);
 			},
 			message: 'La durata del corso deve essere di almeno 2 giorni'
 		}
@@ -82,6 +83,10 @@ $(document).ready(function() {
 			dataFineCorso: {
 				container: '#infodataFineCorso',
 				validators: dataFineValidators
+			},
+			commenti: {
+				container: '#infoCommenti',
+				validators: commentiValidators
 			},
 			aulaCorso: {
 				container: '#infoAulaCorso',
@@ -108,10 +113,6 @@ $(document).ready(function() {
 			cognomeCorsista: {
 				container: '#infoCognomeCorsista',
 				validators: noNumeriMax30Validators
-			},
-			commenti: {
-				container: '#infoCommenti',
-				validators: commentiValidators
 			},
 			codCorso: {
 				container: '#infoDocente',

@@ -20,7 +20,7 @@ create table corso(
 	dataInizioCorso date not null,
 	dataFineCorso date not null,
 	costoCorso number(7,2) not null,
-	commentiCorso varchar2(30) default 'nessun commento',
+	commentiCorso varchar2(200) default 'nessun commento',
 	aulaCorso varchar2(30) not null,
 	codDocente int,
 	constraint f_codDocente foreign key(codDocente) references docente(codDocente),
