@@ -18,7 +18,6 @@ body {
   	font-size: 16px;
   	background: #F3F3F3;
   	color: #052E36;
-  	margin-top: 70px;
 }
 
 /*========= Tabella Corsisti =========*/
@@ -40,33 +39,46 @@ body {
 
 /*========= Login =========*/
 
-.container_login {
+.container {
 	margin-top: 70px !important;
+}
+
+.container_login {
+	height: 100vh;
 	display: flex !important;
 	flex-direction: column !important;
 	align-items: center !important;
-	justify-content: center !important;
+	justify-content: space-between !important;
+}
+
+.container_login .body_login {
+	display: flex; 
+	align-items: center; 
+	flex-direction: column;
 }
 
 .titolo_login {
+	margin-top: 30px;
+	text-align: center;
 	font-weight: 600 !important; 
 	font-size: 52px !important;
 	color: #F3F3F3;
+	padding: 0 40px !important;
 }
 
 .sottotitolo_login {
 	text-align: center;
 	font-weight: 400 !important; 
+	font-size: 32px !important;
 	margin-top: 0 !important;
 	color: #F3F3F3;
+	padding: 0 20px 40px 20px !important;
 }
 
 .form_login {
-	margin-top: 40px;
+	width: fit-content;
 	padding: 40px 30px !important;
 	background: rgba(243, 243, 243, 0.4);
-	border: 1px solid #41908F;
-	box-shadow: 2px 2px 12px rgba(65, 144, 143, 0.5), -2px -2px 12px rgba(65, 144, 143, 0.5);
 	border-radius: 10px;
 }
 
@@ -131,26 +143,69 @@ body {
 	font-weight: 400 !important; 
 }
 
-.footer_login {
-	position: absolute;
-	bottom: 0;
-	left: 0;
+.footer_login {	
 	width: 100%;
 	text-align: center;
 	color: #F3F3F3;
 }
 
+@media (max-width: 560px){
+	
+	.titolo_login {
+		font-size: 42px !important;
+		padding: 0 20px !important;
+	}
+	
+	.sottotitolo_login {
+		font-size: 22px !important;
+		padding: 0 5px 20px 5px !important;
+	}
+	
+	.form_login {
+		padding: 30px 20px !important;
+	}
+	
+	.form_login .header_login {
+		padding: 15px !important;
+	}
+
+	.form_login .header_login .icon_header_login {
+		font-size: 42px;
+	}
+	
+	.form_login .tentativi_login {
+		margin-top: 20px;
+	}
+	
+	.footer_login {
+		font-size: 14px;
+	}
+	
+}
+
 /*========= Accesso negato =========*/
 
 .container_accessonegato{
-	margin-top: 50px; 
+	height: 100vh;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+}
+
+.container_accessonegato .page-header{
+	margin-top: 70px !important;
 	color: #F3F3F3;
 }
 
 .container_accessonegato .panel {
 	background: rgba(243, 243, 243, 0.4) !important;
-	border: 1px solid #41908F !important;
-	box-shadow: 2px 2px 12px rgba(65, 144, 143, 0.5), -2px -2px 12px rgba(65, 144, 143, 0.5) !important;
+	border: none;
+}
+
+.container_accessonegato .panel-heading{
+	background: rgba(223, 89, 89, 0.8) !important;
+	color: #790707 !important;
 }
 
 .container_accessonegato .panel-body{

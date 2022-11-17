@@ -30,10 +30,16 @@ public class CorsoIdGenerator implements IdGeneratorInterface, DAOConstants {
 	@Override
 	public long getNextId()
 			throws IOException, ClassNotFoundException, SQLException {
-		stmt = conn.createStatement();
-		rs = stmt.executeQuery(SELECT_CORSOSEQ);
-		rs.next();
-		return rs.getLong(1);
+		long id = 0;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(SELECT_CORSOSEQ);
+			rs.next();
+			id = rs.getLong(1);
+		}catch (SQLException sql) {
+			throw sql;
+		}
+		return id;
 	}
 
 }

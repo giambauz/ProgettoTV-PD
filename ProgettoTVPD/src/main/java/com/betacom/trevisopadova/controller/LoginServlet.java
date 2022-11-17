@@ -2,6 +2,8 @@ package com.betacom.trevisopadova.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +36,8 @@ public class LoginServlet extends HttpServlet {
 		if(nomeAdmin != null && cognomeAdmin != null && codAdmin != null) {
 
 			Amministratore amministratore = null;
+			Cookie cookieNome = null;
+			Cookie cookieCognome = null;
 			
 			try {
 				
@@ -46,17 +50,14 @@ public class LoginServlet extends HttpServlet {
 						
 						boolean ricordami = "on".equals(request.getParameter("ricordami"));
 						
-						Cookie cookieNome = null;
-						Cookie cookieCognome = null;
-						
 						if(ricordami == true) {
 							
 							cookieNome = new Cookie("nomeAdmin", nomeAdmin);
-							cookieNome.setMaxAge(86000);
+							cookieNome.setMaxAge(5);//60*60*24
 							response.addCookie(cookieNome);
 							
 							cookieCognome = new Cookie("cognomeAdmin", cognomeAdmin);
-							cookieCognome.setMaxAge(86000);
+							cookieCognome.setMaxAge(5);//60*60*24
 							response.addCookie(cookieCognome);
 							
 						}
@@ -68,10 +69,28 @@ public class LoginServlet extends HttpServlet {
 						
 				} 
 				
-				Integer count = (Integer)session.getAttribute("tentativi");
-				session.setAttribute("tentativi", count-1);
-				
-				response.sendRedirect("index.jsp");
+				if((session.getAttribute("nomeAdmin") != null && session.getAttribute("cognomeAdmin") != null) || 
+						(cookieNome != null && cookieCognome != null)) {
+					
+					response.sendRedirect("reportCorsisti.jsp");
+					
+				} else {
+					Integer count = (Integer)session.getAttribute("tentativi");
+					session.setAttribute("tentativi", count-1);
+					
+					if((Integer)session.getAttribute("tentativi") == 0) {
+	
+						Cookie bloccato = new Cookie("bloccato", new SimpleDateFormat("dd/MM/yyyy_HH:mm:ss").format(Calendar.getInstance().getTime()));
+						bloccato.setMaxAge(60*60*24); //60*60*24
+						response.addCookie(bloccato);
+						
+						response.sendRedirect("error-page/accessonegato.jsp");
+					
+					} else {
+						response.sendRedirect("index.jsp");
+					}
+					
+				}
 				
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();

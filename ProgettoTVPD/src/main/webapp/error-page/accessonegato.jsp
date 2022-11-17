@@ -1,17 +1,28 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%
 
-	if(session.getAttribute("tentativi") == null)
-		session.setAttribute("tentativi", (Integer)5);
+	/* Cookie webTracker = new Cookie("webTracker", request.getHeader("Referer"));
+	webTracker.setMaxAge(60*60*24);
+	response.addCookie(webTracker); */
 	
-	if((Integer)session.getAttribute("tentativi") != 0) {
+	Cookie[] cookies = request.getCookies();
+	boolean flagBloccato = false;
+	
+	for(int i=0; cookies !=null && i < cookies.length; i++) {
 		
-		Cookie bloccato = new Cookie("bloccato", "true");
-		bloccato.setValue("23:59:59"); //86400
-		response.addCookie(bloccato);
+		if(cookies[i].getName().equals("bloccato") && cookies[i].getValue() != null)
+			flagBloccato = true;
+		
+	}
+	
+	if(!flagBloccato)
+		response.sendRedirect("../index.jsp");
+	else {
 		
 %>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
 <!DOCTYPE html>
 <html>
@@ -24,46 +35,45 @@
 
 	<img class="wallpaper_gen img-responsive" alt="wallpaper-login" src="../img/wallpaper_index.png">
 	
-	<div class="container container_accessonegato">
-	
-		<header class="page-header">
-			<h3>Accesso bloccato</h3>	
-		</header>
-	
-		<div class="panel panel-danger">
-			
-			<div class="panel-heading">
-				<h3>Mi dispiace, hai terminato i tuoi tentativi di accesso per oggi</h3>
+	<div class="container_accessonegato">
+		
+		<div>
+		
+			<header class="page-header">
+				<h3>Accesso bloccato</h3>	
+			</header>
+		
+			<div class="panel panel-danger">
+				
+				<div class="panel-heading">
+					<h3>Mi dispiace, hai terminato i tuoi tentativi di accesso per oggi</h3>
+				</div>
+				
+				<div class="panel-body">
+					<p>Torna domani</p>
+				</div>
+				
 			</div>
-			
-			<div class="panel-body">
-				<p>Script --> Torna tra:&nbsp;<span id="contoAllaRovescia1">0 : 0 : 5</span></p>
-				<p>Cookie --> Torna tra:&nbsp;<span id="contoAllaRovescia2"></span></p>
-			</div>
-			
+		
+		</div>
+		
+		<div class="footer_login">
+			<p>©&nbsp;Copyright - Gestione corsi betacom Treviso-Padova<p>
 		</div>
 	
 	</div>
 
 	<script type="text/javascript">
 	
-		var contoAllaRovescia = setInterval(function() {
+		/* var contoAllaRovescia = setInterval(function() {
 			
-			<%
 			
-				String ore = bloccato.getValue();
-				int i = Integer.parseInt(ore);
-				i = i/60;
-				i = i/60;
-		
-			%>
 			
-			var hh = <%= i %>;
-			document.getElementById("contoAllaRovescia2").innerHTML = hh;
 			
-		}, 1000);
+			
+		}, 1000); */
 	
-		<!--var hhrimanenti = 0;
+		/* var hhrimanenti = 0;
 		var mmrimanenti = 0;
 		var ssrimanenti = 5;
 		
@@ -99,14 +109,12 @@
 	    		 window.location = "accessonegato.jsp";
 	    	 }
 	    	 	
-	     }, 1000);-->
+	     }, 1000); */
 	
 	</script>
 
 </body>
 </html>
 <%
-	} else {
-		response.sendRedirect("../index.jsp");
-	}
+	} 
 %>
