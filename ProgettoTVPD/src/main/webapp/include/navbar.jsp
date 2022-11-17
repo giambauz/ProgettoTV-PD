@@ -17,7 +17,32 @@
     			<li role="presentation">
     				<a class="benvenuto_nav" href="#">
     					<span class="glyphicon glyphicon-user"></span>
-    					&nbsp;&nbsp;Benvenuto&nbsp;<%= session.getAttribute("nomeAdmin") %>&nbsp;<%= session.getAttribute("cognomeAdmin") %>
+    					<%
+    						if(session.getAttribute("sessionNominativo") != null) {
+    					%>
+    					&nbsp;&nbsp;Benvenuto&nbsp;<%= session.getAttribute("sessionNominativo") %>
+    					<%
+    						} else {
+    							
+    							Cookie[] cookies = request.getCookies();
+    							boolean flagCookieNominativo = false;
+    							String[] splitted = null;
+    							
+    							for(int i=0; cookies !=null && i < cookies.length; i++) 
+    								if(cookies[i].getName().equals("cookieNominativo")){
+    									
+    									flagCookieNominativo = true;
+    									splitted = cookies[i].getValue().split(":");
+    									
+    								}
+    							
+    							if(flagCookieNominativo){		
+    					%>
+    					&nbsp;&nbsp;Benvenuto&nbsp;<%= splitted[0] %>&nbsp;<%= splitted[1] %>
+    					<%
+    							}
+    						}
+    					%>
     				</a>
     			</li>
 				<li role="presentation">

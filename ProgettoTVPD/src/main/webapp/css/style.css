@@ -1,7 +1,4 @@
 /*========= General =========*/
-*{
-	transition: all .3s ease;
-}
 
 html{
 	position: relative;
@@ -209,7 +206,7 @@ body {
 /*========= navbar =========*/
 
 .navbar{
-	padding: 5px 15px;
+	padding: 0px 15px;
 	background: linear-gradient(90.08deg, #052E36 0%, #0C6677 57.14%);
 }
 
@@ -231,11 +228,11 @@ body {
 .navbar .logout_nav {
 	background-color: #052E36 !important;
 	color: #F3F3F3 !important;
-	border-radius: 10px;
 }
 
 .navbar .logout_nav:hover{
-	box-shadow: inset 0px 100px 4px rgba(0, 0, 0, 0.25); 
+	background-color: #F3F3F3 !important;
+	color: #052E36 !important;
 }
 
 /*========= Footer =========*/
