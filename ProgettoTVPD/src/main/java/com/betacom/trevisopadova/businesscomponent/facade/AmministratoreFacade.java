@@ -38,16 +38,16 @@ public class AmministratoreFacade {
 		corsoBC.delete(corso);
 	}
 	
-	public void getAllDopoDataOdiernaCorso(Date data)
+	public Corso[] getAllDopoDataOdiernaCorso(Date data)
 			throws ClassNotFoundException, SQLException, IOException {
 		corsoBC = new CorsoBC();
-		corsoBC.getAllDopoDataOdierna(data);
+		return corsoBC.getAllDopoDataOdierna(data);
 	}
 	
-	public void getAllCorso()
+	public Corso[] getAllCorso()
 			throws ClassNotFoundException, SQLException, IOException {
 		corsoBC = new CorsoBC();
-		corsoBC.getAll();
+		return corsoBC.getAll();
 	}
 	
 	public void create(CorsoCorsista cc)
@@ -62,15 +62,15 @@ public class AmministratoreFacade {
 		corsistaBC.create(corsista);
 	}
 	
-	public void getAllCorsista()
+	public Corsista[] getAllCorsista()
 			throws ClassNotFoundException, SQLException, IOException {
-		//corsistaBC = new CorsistaBC();
-		//corsistaBC.getAll();
+		corsistaBC = new CorsistaBC();
+		return corsistaBC.getAll();
 	}
 	
-	public void getCountCorsista()
+	public int getCountCorsista()
 			throws ClassNotFoundException, SQLException, IOException {
-		//corsistaBC = new CorsistaBC();
-		//corsistaBC.getCount();
+		corsistaBC = new CorsistaBC();
+		return corsistaBC.getCount();
 	}
 }
