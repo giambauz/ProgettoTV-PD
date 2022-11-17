@@ -76,9 +76,9 @@ I.    Numero corsisti totali. fatto
 II.   Nome del corso pi� frequentato fatto
 III.  Data di inizio ultimo corso fatto
 IV.   Durata media dei corsi ( in giorni lavorativi ) fatto
-V.    Numero di commenti presenti
+V.    Numero di commenti presenti fatto
 VI.   Elenco corsisti fatto
-VII.  Docente che pu� tenere pi� tipologie di corso fatto
+VII.  Docente che pu� tenere pi� tipologie di corso fatto fatto
 VIII. Corsi con posti disponibili 12
 
 Al punto VI. cliccando sul nome del corsista si deve aprire la pagina contenente il riepilogo con le informazioni dei corsi da lui frequentati.
