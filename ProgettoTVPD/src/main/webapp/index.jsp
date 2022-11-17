@@ -160,7 +160,7 @@
 		</div>
 		
 		<div class="footer_login">
-			<p>©&nbsp;Copyright - Gestione corsi betacom Treviso-Padova<p>
+			<p>&copy;&nbsp;Copyright - Gestione corsi betacom Treviso-Padova<p>
 		</div>
 		
 	</div>

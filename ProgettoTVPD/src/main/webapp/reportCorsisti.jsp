@@ -34,34 +34,67 @@
 
 	<jsp:include page="include/navbar.jsp"></jsp:include>
 
-	<a href="include/logout.jsp">logout</a>
-
 	<div class="container">
-		<div class="table-responsive table-striped">
-			<table class="table table-striped table-lt">
+	
+		<header class="page-header" style="border-bottom: 1px solid #052E36 !important">
+			<h3>Report corsisti</h3>	
+		</header>
+	
+		<div class="table-responsive">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>Matricola</th>
 						<th>Nome</th>
 						<th>Cognome</th>
 						<th>Precedenti Formativi</th>
+						<th>Attualmente iscritti</th>
 					</tr>
 				</thead>
 				<tbody>
 				<%	
-					Corsista[] c = AmministratoreFacade.getInstance().getiscritti();
-					for (int i = 0; i < c.length; i++){	
-				%>
 					
+					Corsista[] c = AmministratoreFacade.getInstance().getAllCorsista();
+					Corsista[] cc = AmministratoreFacade.getInstance().getiscritti();
+					boolean flagicon = false;
+					
+					for (int i = 0; i < c.length; i++){	
+						
+				%>
 					<tr>
 						<td>#<%= c[i].getCodCorsista() %></td>
 						<td><%= c[i].getNomeCorsista()%></td>
 						<td><%= c[i].getCognomeCorsista()%></td>
-						<% if(c[i].getPrecedentiFormativi() == 1){%>
-						<td><i class="glyphicon glyphicon-ok"></i></td>
-						<% }else{ %>
-						<td><i class="glyphicon glyphicon-remove"></i></td>
-						<% } %>
+						<td style="width: 200px;">
+							<% 
+								if(c[i].getPrecedentiFormativi() == 1){
+							%>
+							<i class="glyphicon glyphicon-ok"></i>
+							<% 
+								}else { 
+							%>
+							<i class="glyphicon glyphicon-remove"></i>
+							<% 
+								} 
+							%>
+						</td>
+						<td style="width: 150px;">
+							<%
+								for(int j = 0; j < cc.length; j++)
+									if(c[i].getCodCorsista() == cc[j].getCodCorsista())
+										flagicon = true;
+								
+								if(flagicon){
+							%>
+							<i class="glyphicon glyphicon-ok"></i>
+							<% 
+								}else{ 
+							%>
+							<i class="glyphicon glyphicon-remove"></i>
+							<% 
+								}
+							%>
+						</td>
 					</tr>
 				<%
 					}
@@ -73,6 +106,8 @@
 			Report corsi
 		</a>
 	</div>
+	
+	<%@ include file="include/footer.html" %>
 
 </body>
 </html>
