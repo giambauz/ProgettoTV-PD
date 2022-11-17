@@ -130,12 +130,26 @@ $(document).ready(function() {
 			cognomeCorsista: {
 				container: '#infoCognomeCorsista',
 				validators: noNumeriMax30Validators
-			},
-			codCorso: {
-				container: '#infoDocente',
-				validators: selectOneValidators
 			}
 		}
 	};
 	$('#corsistaForm').bootstrapValidator(corsistaValidatorOptions);
+	let corsoCorsistaValidatorOptions = {
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		fields: {
+			codCorso: {
+				container: '#infoccCodCorso',
+				validators: selectOneValidators
+			},
+			codCorsista: {
+				container: '#infoccCodCorsista',
+				validators: selectOneValidators
+			}
+		}
+	};
+	$('#corsoCorsistaForm').bootstrapValidator(corsoCorsistaValidatorOptions);
 })
