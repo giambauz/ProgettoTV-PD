@@ -1,3 +1,15 @@
+<%@page
+	import="com.betacom.trevisopadova.businesscomponent.model.Docente"%>
+<%@page
+	import="com.betacom.trevisopadova.architecture.dbaccess.DBAccess"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="com.betacom.trevisopadova.architecture.dao.DocenteDAO"%>
+<%
+Connection conn = DBAccess.getConnection();
+Docente[] docenti = DocenteDAO.getFactory().getAll(conn);
+%>
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -16,10 +28,10 @@
 <body>
 
 	<div class="container">
-		<h2>Inserisci Corsista</h2>
+		<h2>Inserisci corsista</h2>
 		<!-- Trigger the modal with a button -->
 		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-			data-target="#myModal">Inserisci Corsista</button>
+			data-target="#myModal">Inserisci corsista</button>
 
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -28,7 +40,7 @@
 				<div class="modal-content">
 					<div class="modal-header text-center">
 						<h4 class="modal-title w-100 font-weight-bold">Inserisci
-							Corsista</h4>
+							corsista</h4>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
@@ -68,10 +80,10 @@
 			</div>
 		</div>
 
-		<h2>Inserisci Corso</h2>
+		<h2>Inserisci corso</h2>
 		<!-- Trigger the modal with a button -->
 		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-			data-target="#myModal2">Inserisci Corso</button>
+			data-target="#myModal2">Inserisci corso</button>
 
 		<!-- Modal -->
 		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
@@ -80,7 +92,7 @@
 				<div class="modal-content">
 					<div class="modal-header text-center">
 						<h4 class="modal-title w-100 font-weight-bold">Inserisci
-							Corso</h4>
+							corso</h4>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
@@ -131,9 +143,19 @@
 						</div>
 						<br>
 						<div class="md-form mb-5">
-							<i class="fas fa-envelope prefix grey-text"></i> <input
-								type="text" id="orangeForm-name" class="form-control validate">
-							<label data-error="wrong" data-success="right"
+							<i class="fas fa-envelope prefix grey-text"></i> <select
+								id="Docenti" name="Docenti">
+								<optgroup label="Docenti">
+									<%
+									for (Docente d : docenti) {
+									%>
+									<option value="<%=d.getCodDocente()%>" ><%=d.getNomeDocente() %> <%=d.getCognomeDocente() %></option>
+									<%
+									}
+									%>
+								</optgroup>
+
+							</select> <label data-error="wrong" data-success="right"
 								for="orangeForm-name">Docente</label>
 						</div>
 						<br>
@@ -144,7 +166,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<h2>Assegna corsista a corso</h2>
 		<!-- Trigger the modal with a button -->
 		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
@@ -156,15 +178,14 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header text-center">
-						<h4 class="modal-title w-100 font-weight-bold">Assegna corsista a corso</h4>
+						<h4 class="modal-title w-100 font-weight-bold">Assegna
+							corsista a corso</h4>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body mx-3">
-						
-					</div>
+					<div class="modal-body mx-3"></div>
 					<div class="modal-footer d-flex justify-content-center">
 						<button class="btn btn-deep-orange">Assegna</button>
 					</div>

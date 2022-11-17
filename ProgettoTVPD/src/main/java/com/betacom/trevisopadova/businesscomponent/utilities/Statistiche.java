@@ -96,15 +96,10 @@ public class Statistiche implements DAOConstants{
 	}
 	
 	public int getPostiDisponibiliCorsi(long id) throws SQLException {
-		System.out.println(id);
 		PreparedStatement ps = conn.prepareStatement(SELECT_POSTI_DISPONIBILI);
-		System.out.println(id);
 		ps.setLong(1, id);
-		System.out.println(id);
 		rs = ps.executeQuery();
 		rs.next();
-		System.out.println(id);
-		System.out.println(rs.getInt(1));
 		int disp = rs.getInt(1);
 		rs.close();
 		ps.close();
