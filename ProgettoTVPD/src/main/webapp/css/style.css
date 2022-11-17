@@ -1,8 +1,5 @@
 /*========= General =========*/
 *{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
 	transition: all .3s ease;
 }
 
@@ -12,10 +9,11 @@ html{
 }
 
 body {
-	width: 100%;
 	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+  	justify-content: space-between;
   	font-family: 'Kanit', sans-serif;
-  	font-size: 16px;
   	background: #F3F3F3;
   	color: #052E36;
 }
@@ -208,26 +206,91 @@ body {
 /*========= navbar =========*/
 
 .navbar{
-	padding: 0 !important;
+	padding: 5px 15px;
 	background: linear-gradient(90.08deg, #052E36 0%, #0C6677 57.14%);
 }
 
-.navbar .navbar-brand,
-.navbar .navbar-text {
-	color: #F3F3F3 !important;
+.navbar button span{
+	background-color: #F3F3F3 !important;
+}
+
+.navbar-default .navbar-toggle:focus span,
+.navbar-default .navbar-toggle:hover span{
+	background-color: #052E36 !important;
+}
+
+.navbar .benvenuto_nav{
+	color: #C6C6C6 !important;
+	cursor: default !important; 
+	margin-right: 20px !important;
 }
 
 .navbar .logout_nav {
-	padding: 5px 10px;
 	background-color: #052E36 !important;
 	color: #F3F3F3 !important;
-	cursor: pointer;
+	border-radius: 10px;
 }
 
 .navbar .logout_nav:hover{
 	box-shadow: inset 0px 100px 4px rgba(0, 0, 0, 0.25); 
 }
 
-/*========= Tabella Corsisti =========*/
+/*========= Footer =========*/
 
+footer {
+	margin-top: 50px;
+	width: 100%;
+	background: linear-gradient(92.49deg, #0C6677 0%, #052E36 100%);;
+	color: white;
+	padding: 10px 30px 10px 30px;
+}
+
+footer .box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer .logo{
+    display: flex;
+    align-items: center;
+    padding: 0px;
+}
+footer #arrow{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+footer #arrow i{
+    background-color:#0C6677 ;
+    border-radius: 100%;
+    padding: 15px;
+    color:#F3F3F3;
+    cursor: pointer;
+    z-index:1;
+    transition: all 0.3s ease;
+}
+
+footer #arrow i:hover{
+    transform: scale(1.1);
+}
+
+.container-footer{
+	display: flex;
+	flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+footer nav{
+	padding: 10px 30px;
+}
+
+footer nav ul li a{
+	color: #000000 !important;
+}
+
+p.copyright {	
+	text-align: center;
+}
 
