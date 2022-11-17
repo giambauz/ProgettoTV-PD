@@ -168,6 +168,19 @@ class StatisticheTest {
 			fail("Motivo: "+sql.getMessage());
 		}
 	}
+	
+	@Test
+	@Order(6)
+	void testPostiDisponibili() {
+		try {
+			Statistiche stats = new Statistiche();
+			int disp = stats.getPostiDisponibiliCorsi(107);
+			System.out.println("Posti disponibili in corso "+107+": "+disp);
+		}catch(SQLException sql) {
+			sql.printStackTrace();
+			fail("Motivo: "+sql.getMessage());
+		}
+	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {

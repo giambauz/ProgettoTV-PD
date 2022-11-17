@@ -1,3 +1,5 @@
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Corso"%>
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Docente"%>
 <%@page import="java.util.Locale"%>
 <%@page import="java.text.Format"%>
@@ -74,6 +76,36 @@
     </select>
     <input type="submit" value="Elabora statistica">
 	</form>
+	<% Statistiche stats = new Statistiche(); %>
+	<table>
+	    <thead>
+	        <tr>
+	            <td>Codice corso</td>
+	            <td>Nome</td>
+	            <td>Data inizio</td>
+	            <td>Data fine</td>
+	            <td>Costo</td>
+	            <td>Commento</td>
+	            <td>Aula</td>
+	            <td>Codice insegnante</td>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <% for(Corso c : stats.getPiuFrequentato() ){ %>
+	            <tr>
+	                <td><%= c.getCodCorso() %></td>
+	                <td><%= c.getNomeCorso() %></td>
+	                <% DateFormat df = DateFormat.getDateInstance(DateFormat.FULL,Locale.ITALY); %>
+	                <td><%= df.format(c.getDataInizioCorso()) %></td>
+	                <td><%= df.format(c.getDataFineCorso()) %></td>
+	                <td><%= c.getCostoCorso() %></td>
+	                <td><%= c.getCommentiCorso() %></td>
+	                <td><%= c.getAulaCorso() %></td>
+	                <td><%= c.getCodDocente() %></td>
+	            </tr>
+	        <% } %>
+	    </tbody>
+	</table>
 	<% } %>
 	<% if(session.getAttribute("statistica").toString().equals("dataInizioUltimoCorso")){ %>
 	<form action="/<%= application.getServletContextName() %>/statistiche" method="get">
@@ -167,6 +199,32 @@
     </select>
     <input type="submit" value="Elabora statistica">
 	</form>
+	<% Statistiche stats = new Statistiche(); %>
+	<table>
+	    <thead>
+	        <tr>
+	            <td>Codice corsista</td>
+	            <td>Nome</td>
+	            <td>Cognome</td>
+	            <td>Precedenti formativi</td>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <% for(Corsista c : AmministratoreFacade.getInstance().getAllCorsista() ){ %>
+	            <tr>
+	                <td><%= c.getCodCorsista() %></td>
+	                <td><%= c.getNomeCorsista() %></td>
+	                <td><%= c.getCognomeCorsista() %></td>
+	                <% int prec = c.getPrecedentiFormativi();
+	                if(prec == 1){ %>
+	                <td>Si</td>
+	                <% }else{ %>
+	                <td>No</td>
+	                <% } %>
+	            </tr>
+	        <% } %>
+	    </tbody>
+	</table>
 	<% } %>
 	<% if(session.getAttribute("statistica").toString().equals("docentePiuCorsi")){ %>
 	<form action="/<%= application.getServletContextName() %>/statistiche" method="get">
@@ -220,6 +278,40 @@
     </select>
     <input type="submit" value="Elabora statistica">
 	</form>
+	<% Statistiche stats = new Statistiche(); %>
+	<table>
+	    <thead>
+	        <tr>
+	            <td>Codice corso</td>
+	            <td>Nome</td>
+	            <td>Data inizio</td>
+	            <td>Data fine</td>
+	            <td>Costo</td>
+	            <td>Commento</td>
+	            <td>Aula</td>
+	            <td>Codice insegnante</td>
+	            <td>Posti disponibili</td>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <% for(Corso c : AmministratoreFacade.getInstance().getDisponibiliCorso() ){
+	        		int disp = stats.getPostiDisponibiliCorsi(c.getCodCorso());
+	        	%>
+	            <tr>
+	                <td><%= c.getCodCorso() %></td>
+	                <td><%= c.getNomeCorso() %></td>
+	                <% DateFormat df = DateFormat.getDateInstance(DateFormat.FULL,Locale.ITALY); %>
+	                <td><%= df.format(c.getDataInizioCorso()) %></td>
+	                <td><%= df.format(c.getDataFineCorso()) %></td>
+	                <td><%= c.getCostoCorso() %></td>
+	                <td><%= c.getCommentiCorso() %></td>
+	                <td><%= c.getAulaCorso() %></td>
+	                <td><%= c.getCodDocente() %></td>
+	                <td><%= disp %></td>
+	            </tr>
+	        <% } %>
+	    </tbody>
+	</table>
 	<% } %>
 </div>
 </body>

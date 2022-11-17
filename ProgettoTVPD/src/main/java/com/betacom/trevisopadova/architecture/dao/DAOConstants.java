@@ -20,4 +20,5 @@ public interface DAOConstants {
 	String SELECT_CORSO_DISPONIBILE="select * from corso where codCorso not in (select corso from frequenze where totFrequenze>=12) and dataInizioCorso>sysdate";
 	String SELECT_COUNT_COMMENTI="select count(commentiCorso) from corso";
 	String SELECT_CORSISTI_ISCRITTI="select * from corsista where codCorsista in (select distinct codCorsista from corso_corsista)";
+	String SELECT_POSTI_DISPONIBILI="select 12-totFrequenze from frequenze where corso=?";
 }
