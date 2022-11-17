@@ -46,7 +46,7 @@ public class Statistiche implements DAOConstants{
 	
 	public Corso[] getPiuFrequentato() throws SQLException {
 		Corso[] c;
-		stmt = conn.createStatement();
+		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 		rs = stmt.executeQuery(SELECT_CORSO_PIU_FREQUENTATO);
 		rs.last();
 		c = new Corso[rs.getRow()];

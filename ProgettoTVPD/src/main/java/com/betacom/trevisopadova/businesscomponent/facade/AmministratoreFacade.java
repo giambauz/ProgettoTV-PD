@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
 
+import com.betacom.trevisopadova.businesscomponent.CorsistaBC;
 import com.betacom.trevisopadova.businesscomponent.CorsoBC;
 import com.betacom.trevisopadova.businesscomponent.CorsoCorsistaBC;
 import com.betacom.trevisopadova.businesscomponent.model.Corsista;
@@ -13,7 +14,7 @@ import com.betacom.trevisopadova.businesscomponent.model.CorsoCorsista;
 public class AmministratoreFacade {
 	private static AmministratoreFacade af;
 	private CorsoBC corsoBC;
-	//private CorsistaBC corsistaBC;
+	private CorsistaBC corsistaBC;
 	private CorsoCorsistaBC ccBC;
 	
 	private AmministratoreFacade() {
@@ -57,8 +58,8 @@ public class AmministratoreFacade {
 	
 	public void create(Corsista corsista)
 			throws ClassNotFoundException, SQLException, IOException {
-		//corsistaBC = new CorsistaBC();
-		//corsistaBC.create(corsista);
+		corsistaBC = new CorsistaBC();
+		corsistaBC.create(corsista);
 	}
 	
 	public void getAllCorsista()

@@ -26,7 +26,6 @@ public class CorsoBC {
 
 	public Corso[] getAll() throws SQLException {
 		return CorsoDAO.getFactory().getAll(conn);
-		
 	}
 	
 	public Corso[] getAllDopoDataOdierna(Date data) throws SQLException {
