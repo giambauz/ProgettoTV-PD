@@ -21,6 +21,13 @@ body {
   	margin-top: 70px;
 }
 
+/*========= Tabella Corsisti =========*/
+
+.table-lt th, .table-lt td {
+	text-align: center;
+	width: min-content;
+}
+
 /*========= Login + Error page =========*/
 
 .wallpaper_gen {
