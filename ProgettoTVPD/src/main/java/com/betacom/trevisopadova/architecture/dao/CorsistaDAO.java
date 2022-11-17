@@ -81,6 +81,25 @@ public class CorsistaDAO implements DAOConstants,Validator{
 		
 		return count;
 	}
+	
+	public Corsista[] getIscritti(Connection conn) throws SQLException {
+		Corsista[] corsisti = null;
+		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+		rs = stmt.executeQuery(SELECT_CORSISTI_ISCRITTI);
+		rs.last();
+		corsisti = new Corsista[rs.getRow()];
+		rs.beforeFirst();
+		for (int i = 0; rs.next(); i++) {
+			Corsista corsista = new Corsista();
+			corsista.setCodCorsista(rs.getLong(1));
+			corsista.setNomeCorsista(rs.getString(2));
+			corsista.setCognomeCorsista(rs.getString(3));
+			corsista.setPrecedentiFormativi(rs.getInt(4));
+			corsisti[i] = corsista;
+		}
+		rs.close();
+		return corsisti;
+	}
 
 	@Override
 	public void validate(Corsista entity) {

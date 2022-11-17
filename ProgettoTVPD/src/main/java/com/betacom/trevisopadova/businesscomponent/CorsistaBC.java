@@ -27,4 +27,7 @@ private Connection conn;
 		return CorsistaDAO.getFactory().getCount(conn);
 	}
 	
+	public Corsista[] getIscritti() throws SQLException{
+		return CorsistaDAO.getFactory().getIscritti(conn);
+	}
 }

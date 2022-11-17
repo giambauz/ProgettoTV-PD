@@ -45,12 +45,11 @@
 						<th>Nome</th>
 						<th>Cognome</th>
 						<th>Precedenti Formativi</th>
-						<th>Attualmente iscritto</th>
 					</tr>
 				</thead>
 				<tbody>
 				<%	
-					Corsista[] c = AmministratoreFacade.getInstance().getAllCorsista();
+					Corsista[] c = AmministratoreFacade.getInstance().getiscritti();
 					for (int i = 0; i < c.length; i++){	
 				%>
 					
