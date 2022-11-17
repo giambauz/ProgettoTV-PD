@@ -8,9 +8,9 @@
 	      		<span class="icon-bar"></span>
 	    	</button>
    
-    		<span class="navbar-brand">
+    		<span class="navbar-text">
     			<i class="glyphicon glyphicon-calendar"></i>
-    			<strong>&nbsp;&nbsp;&nbsp;Gestione corsi</strong>
+    			&nbsp;&nbsp;&nbsp;Gestione corsi
     		</span>
 	    		
 	  	</div>
@@ -24,16 +24,15 @@
     					&nbsp;&nbsp;Benvenuto&nbsp;<%= session.getAttribute("nomeAdmin") %>&nbsp;<%= session.getAttribute("cognomeAdmin") %>
     				</p>
 	    		<li>
-	    		<li class="logout_nav">
-					<p class="navbar-text" onclick="logout();" >
-						<span class="glyphicon glyphicon-log-out"></span>
-						&nbsp;&nbsp;Logout
-					</p>
-					<script type="text/javascript">
-						function logout(){
-							window.location = "logout.jsp";
-						}
-					</script>
+				<p class="navbar-text logout_nav" onclick="logout();" >
+					<span class="glyphicon glyphicon-log-out"></span>
+					&nbsp;&nbsp;Logout
+				</p>
+				<script type="text/javascript">
+					function logout(){
+						window.location = "logout.jsp";
+					}
+				</script>
 				</li> 
 	    	</ul>
 	    	

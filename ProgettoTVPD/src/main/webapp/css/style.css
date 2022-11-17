@@ -218,6 +218,7 @@ body {
 }
 
 .navbar .logout_nav {
+	padding: 5px 10px;
 	background-color: #052E36 !important;
 	color: #F3F3F3 !important;
 	cursor: pointer;
@@ -229,7 +230,4 @@ body {
 
 /*========= Tabella Corsisti =========*/
 
-.table-lt th, .table-lt td {
-	text-align: center;
-	width: min-content;
-}
+

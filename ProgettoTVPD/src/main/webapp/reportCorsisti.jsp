@@ -38,13 +38,14 @@
 
 	<div class="container">
 		<div class="table-responsive table-striped">
-			<table class="table table-hover table-striped table-lt">
+			<table class="table table-striped table-lt">
 				<thead>
 					<tr>
 						<th>Matricola</th>
 						<th>Nome</th>
 						<th>Cognome</th>
 						<th>Precedenti Formativi</th>
+						<th>Attualmente iscritto</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -54,7 +55,7 @@
 				%>
 					
 					<tr>
-						<td><%= c[i].getCodCorsista() %></td>
+						<td>#<%= c[i].getCodCorsista() %></td>
 						<td><%= c[i].getNomeCorsista()%></td>
 						<td><%= c[i].getCognomeCorsista()%></td>
 						<% if(c[i].getPrecedentiFormativi() == 1){%>
@@ -69,6 +70,9 @@
 				</tbody>
 			</table>
 		</div>
+		<a href="reportCorsi.jsp">
+			Report corsi
+		</a>
 	</div>
 
 </body>
