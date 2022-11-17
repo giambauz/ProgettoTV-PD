@@ -44,6 +44,13 @@ public class AmministratoreFacade {
 		return corsoBC.getAllDopoDataOdierna(data);
 	}
 	
+	public Corso[] getDisponibiliCorso()
+			throws ClassNotFoundException, SQLException, IOException {
+		corsoBC = new CorsoBC();
+		return corsoBC.getDisponibili();
+	}
+
+	
 	public Corso[] getAllCorso()
 			throws ClassNotFoundException, SQLException, IOException {
 		corsoBC = new CorsoBC();

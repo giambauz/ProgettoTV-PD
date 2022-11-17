@@ -1,3 +1,5 @@
+<%@page import="oracle.net.aso.af"%>
+<%@page import="com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corso"%>
@@ -6,7 +8,6 @@
 <%!
 	SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
 %>
-<jsp:useBean id="corsoBC" class="com.betacom.trevisopadova.businesscomponent.CorsoBC" scope="page"></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,14 +41,15 @@
   </thead>
   <tbody>
 <%	
-	for (Corso c : corsoBC.getAllDopoDataOdierna(new Date())){
+	AmministratoreFacade aF = AmministratoreFacade.getInstance(); 
+	for (Corso c : aF.getAllDopoDataOdiernaCorso(new Date())){
 %>
     <tr>
       <th><%= c.getNomeCorso() %></th>
       <th><%= formatDate.format(c.getDataInizioCorso()) %></th>
       <th><%= formatDate.format(c.getDataFineCorso()) %></th>
       <th><%= String.format("%.2f", c.getCostoCorso()) %></th>
-      <th><%= c.getCommentiCorso() %></th>
+      <th><%= (c.getCommentiCorso() == null) ? "nessun commento" : c.getCommentiCorso() %></th>
       <th><%= c.getAulaCorso() %></th>
       <th><%= c.getCodDocente() %></th>
       <th>

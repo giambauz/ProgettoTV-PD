@@ -32,4 +32,8 @@ public class CorsoBC {
 		return CorsoDAO.getFactory().getAllDopoDataOdierna(conn, data);
 	}
 	
+	public Corso[] getDisponibili() throws SQLException {
+		return CorsoDAO.getFactory().getDisponibili(conn);
+	}
+
 }

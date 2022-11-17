@@ -99,6 +99,20 @@ class CorsoDAOTest {
 	
 	@Test
 	@Order(4)
+	void testGetDisponibili() {
+		try {
+			System.out.println("Test GetDisponibili");
+			Corso[] corsi = CorsoDAO.getFactory().getDisponibili(conn);
+			for (Corso c : corsi)
+				System.out.println(c);
+		} catch (SQLException e) {
+			fail("Motivo: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	@Order(5)
 	void testDelete() {
 		try {
 			System.out.println("Test Delete");
