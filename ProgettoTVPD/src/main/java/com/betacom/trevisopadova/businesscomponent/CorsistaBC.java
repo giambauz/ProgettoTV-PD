@@ -19,7 +19,7 @@ private Connection conn;
 		CorsistaDAO.getFactory().create(conn, corsista);
 	}
 	
-	public Corsista[] getAll(Corsista corsista) throws SQLException{
+	public Corsista[] getAll() throws SQLException{
 		return CorsistaDAO.getFactory().getAll(conn);
 	}
 	
