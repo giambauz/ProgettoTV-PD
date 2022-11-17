@@ -1,3 +1,4 @@
+/*========= General =========*/
 *{
 	margin: 0;
 	padding: 0;
@@ -17,11 +18,24 @@ body {
 	flex-direction: column;
   	justify-content: space-between;
   	font-family: 'Kanit', sans-serif;
+  	font-size: 16px;
   	background: #F3F3F3;
-  	color: #222222;
+  	color: #052E36;
 }
 
-.container {
+/*========= Login + Error page =========*/
+
+.wallpaper_gen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	max-height: 100vh;
+}
+
+/*========= Login =========*/
+
+.container_login {
 	margin-top: 70px !important;
 	display: flex !important;
 	flex-direction: column !important;
@@ -29,31 +43,45 @@ body {
 	justify-content: center !important;
 }
 
-.p_login {
-	font-size: 32px;
+.titolo_login {
+	font-weight: 600 !important; 
+	font-size: 52px !important;
+	color: #F3F3F3;
+}
+
+.sottotitolo_login {
 	text-align: center;
+	font-weight: 400 !important; 
+	margin-top: 0 !important;
+	color: #F3F3F3;
 }
 
-.page-header {
-	border: 1px solid #222222 !important;
-}
-
-form {
-	margin-top: 30px;
-	padding: 60px 30px !important;
-	background-color: #FFFFFF;
+.form_login {
+	margin-top: 40px;
+	padding: 40px 30px !important;
+	background: rgba(243, 243, 243, 0.4);
+	border: 1px solid #41908F;
+	box-shadow: 2px 2px 12px rgba(65, 144, 143, 0.5), -2px -2px 12px rgba(65, 144, 143, 0.5);
 	border-radius: 10px;
-	box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.header_login {
-	margin-bottom: 15px !important;
-	text-align: center !important;
-	border-bottom: 1px solid #222222;
+.form_login .header_login {
+	width: fit-content;
+	height: fit-content;
+	background: linear-gradient(135deg, #41908F 0%, #0C6677 100%);
+	border-radius: 100%;
+	margin: auto !important;
+	margin-bottom: 20px !important;
+	padding: 20px !important;
 }
 
-.header_login i {
-	font-size: 42px;
+.form_login i {
+	color: #052E36;
+}
+
+.form_login .header_login .icon_header_login {
+	font-size: 52px;
+	color: #F3F3F3;
 }
 
 .form-horizontal .form-group {
@@ -61,6 +89,87 @@ form {
 	margin-left: unset !important;
 }
 
-form #cod-icon{
+.form_login .form-group #nomeAdmin,
+.form_login .form-group #cognomeAdmin,
+.form_login .form-group #codAdmin {
+	font-weight: 300 !important; 
+	font-size: 16px;
+	color: #052E36;
+}
+
+.form_login .form-group #cod-icon{
 	cursor: pointer;
+}
+
+.form_login .form-group #ricordami{
+	margin: 0 !important;
+	width: 18px;
+	height: 18px; 
+}
+
+.form_login .row .btn_login{
+	color: #F3F3F3;
+	border: 0 !important;
+	font-size: 16px;
+	padding: 10px 40px !important;
+	background: linear-gradient(93.3deg, #41908F 0%, #0C6677 100%) !important;
+}
+.form_login .row .btn_login:hover {
+	box-shadow: inset 0px 100px 4px rgba(0, 0, 0, 0.25); 
+}
+
+.form_login .tentativi_login {
+	margin-top: 25px;
+    text-align: center;
+    font-size: 18px;
+	color: #B70000;
+	font-weight: 400 !important; 
+}
+
+.footer_login {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	color: #F3F3F3;
+}
+
+/*========= Accesso negato =========*/
+
+.container_accessonegato{
+	margin-top: 50px; 
+	color: #F3F3F3;
+}
+
+.container_accessonegato .panel {
+	background: rgba(243, 243, 243, 0.4) !important;
+	border: 1px solid #41908F !important;
+	box-shadow: 2px 2px 12px rgba(65, 144, 143, 0.5), -2px -2px 12px rgba(65, 144, 143, 0.5) !important;
+}
+
+.container_accessonegato .panel-body{
+	padding: 30px !important;
+}
+
+/*========= navbar =========*/
+
+.navbar{
+	padding: 0 !important;
+	background: linear-gradient(90.08deg, #052E36 0%, #0C6677 57.14%);
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-text {
+	color: #F3F3F3 !important;
+}
+
+.navbar .logout_nav {
+	background-color: #052E36 !important;
+	color: #F3F3F3 !important;
+	cursor: pointer;
+}
+
+.navbar .logout_nav:hover{
+	box-shadow: inset 0px 100px 4px rgba(0, 0, 0, 0.25); 
 }

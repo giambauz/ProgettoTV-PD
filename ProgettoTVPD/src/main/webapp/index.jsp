@@ -1,9 +1,27 @@
 <%
+	
+	if(session.getAttribute("tentativi") == null)
+		session.setAttribute("tentativi", (Integer)5);
 
-	if(session.getAttribute("nomeAdmin") != null && session.getAttribute("cognomeAdmin") != null)
-		response.sendRedirect("test.jsp");
-	else {
+	Cookie[] cookies = request.getCookies();
+	boolean flag = false;
 
+	if((Integer)session.getAttribute("tentativi") != 0) {
+		
+		for(int i=0; cookies !=null && i<cookies.length; i++) {
+			
+			if(cookies[i].getName().equals("nomeAdmin") && cookies[i+1].getName().equals("cognomeAdmin"))
+				flag = true;
+			
+		}
+		
+		if(session.getAttribute("nomeAdmin") != null && session.getAttribute("cognomeAdmin") != null)
+			flag = true;
+			
+		if(flag)
+			response.sendRedirect("reportCorsisti.jsp");
+		else {
+			
 %>
 
 <%@page import="java.util.Calendar"%>
@@ -17,11 +35,13 @@
 	<link rel="stylesheet" href="css/style.css">
 	<title>Login amministratore</title>
 </head>
-<body>
+<body style="background: radial-gradient(50% 50% at 50% 50%, #41908F 0%, #0C6677 100%) !important;">
 	
-	<div class="container">
+	<img class="wallpaper_gen img-responsive" alt="wallpaper-login" src="img/wallpaper_index.png">
 	
-		<h1><strong>
+	<div class="container_login">
+	
+		<h1 class="titolo_login"><strong>
 			<%
 				Calendar now = Calendar.getInstance();
 				if(now.get(Calendar.HOUR_OF_DAY) < 5) {	
@@ -43,12 +63,12 @@
 				}
 			%>
 		</strong></h1>
-		<p class="p_login">Benvenuto nella nostra area di accesso per gli amministratori</p>
+		<h1 class="sottotitolo_login">Benvenuto nella nostra area di accesso per gli amministratori</h1>
 		
-		<form class="form-horizontal col-md-4" action="/<%=application.getServletContextName()%>/login" method="POST">
+		<form class="form_login form-horizontal" action="/<%=application.getServletContextName()%>/login" method="POST">
 			
-			<div class="header_login">
-				<span><i class="glyphicon glyphicon-user"></i></span>
+			<div class="container header_login">
+				<span><i class="glyphicon glyphicon-user icon_header_login"></i></span>
 			</div>	
 		
 			<div class="form-group">
@@ -73,7 +93,7 @@
 				<div class="inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-						<input type="password" name="codAdmin" id="codAdmin" placeholder="Codice di accesso..." class="form-control">
+						<input type="password" name="codAdmin" id="codAdmin" placeholder="Codice di accesso..." class="form-control" required>
 						<span onclick="showHideLoginAmministratore()" class="input-group-addon">
 							<i id="cod-icon" class="glyphicon glyphicon-eye-close"></i>
 						</span>
@@ -101,25 +121,43 @@
 			</script>
 			
 			<div class="form-group">
-				<div style="display: flex !important; align-items: center !important; ">
-					<input type="checkbox" name="ricordami" style="margin: 0 !important;">
+				
+					<input type="checkbox" name="ricordami" id="ricordami">
 					<label style="margin: 0 !important;">&nbsp;&nbsp;Ricordami</label>
-				</div>
+				
 			</div>
 			
 			<div class="row" style="margin-top: 30px; text-align: center;">
-				<button type="submit" class="btn btn-warning">
+				<button type="submit" class="btn btn_login">
 					Login&nbsp;&nbsp;
 					<span class="glyphicon glyphicon-log-in"></span>
 				</button>
 			</div>
+			
+			<%
+				if((Integer)session.getAttribute("tentativi") > 0 &&
+						(Integer)session.getAttribute("tentativi") != 5 ) {
+			%>
+			<p class="tentativi_login">Tentativi rimasti:&nbsp;<strong><%= session.getAttribute("tentativi") %></strong></p>
+			<%
+				}
+			%>
 		
 		</form>
 		
 	</div>
 	
+	<div class="footer_login">
+		<p>©&nbsp;Copyright - Gestione corsi betacom Treviso-Padova<p>
+	</div>
+	
+	
 </body>
 </html>
 <%
+		}
+		
+	} else {
+		response.sendRedirect("error-page/accessonegato.jsp");
 	}
 %>
