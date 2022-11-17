@@ -7,12 +7,15 @@ import java.util.Date;
 import com.betacom.trevisopadova.businesscomponent.CorsistaBC;
 import com.betacom.trevisopadova.businesscomponent.CorsoBC;
 import com.betacom.trevisopadova.businesscomponent.CorsoCorsistaBC;
+import com.betacom.trevisopadova.businesscomponent.DocenteBC;
 import com.betacom.trevisopadova.businesscomponent.model.Corsista;
 import com.betacom.trevisopadova.businesscomponent.model.Corso;
 import com.betacom.trevisopadova.businesscomponent.model.CorsoCorsista;
+import com.betacom.trevisopadova.businesscomponent.model.Docente;
 
 public class AmministratoreFacade {
 	private static AmministratoreFacade af;
+	private DocenteBC docenteBC;
 	private CorsoBC corsoBC;
 	private CorsistaBC corsistaBC;
 	private CorsoCorsistaBC ccBC;
@@ -25,6 +28,13 @@ public class AmministratoreFacade {
 			af = new AmministratoreFacade();
 		return af;
 	}
+	
+	public Docente[] getAllDocente()
+			throws ClassNotFoundException, SQLException, IOException {
+		docenteBC = new DocenteBC();
+		return docenteBC.getAll();
+	}
+
 	
 	public void create(Corso corso)
 			throws ClassNotFoundException, SQLException, IOException {

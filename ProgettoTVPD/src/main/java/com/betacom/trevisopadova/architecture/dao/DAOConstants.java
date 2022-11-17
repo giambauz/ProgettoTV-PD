@@ -1,6 +1,7 @@
 package com.betacom.trevisopadova.architecture.dao;
 
 public interface DAOConstants {
+	String SELECT_DOCENTE="select * from docente";
 	String SELECT_CORSISTA="select * from corsista";
 	String SELECT_CORSO="select * from corso";
 	String SELECT_CORSO_CORSISTA="select * from corso_corsista";
