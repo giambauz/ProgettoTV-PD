@@ -14,7 +14,6 @@ import com.betacom.trevisopadova.architecture.dbaccess.DBAccess;
 import com.betacom.trevisopadova.businesscomponent.model.Docente;
 
 class DocenteDAOTest {
-
 	private static Connection conn;
 	
 	@BeforeAll

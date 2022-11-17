@@ -8,8 +8,8 @@ $(document).ready(function() {
 			max: 30
 		},
 		regexp: {
-			regexp: /^[^0-9]$/,
-			message: 'Il campo non può contenere numeri'
+			regexp: /^[^0-9]+$/,
+			message: 'Il campo non pu&ograve; contenere numeri'
 		}
 	};
 	let commentiValidators = {
@@ -27,7 +27,7 @@ $(document).ready(function() {
 			max: 30
 		},
 		regexp: {
-			regexp: /^[a-zA-Z0-9]$/,
+			regexp: /^[a-zA-Z0-9]+$/,
 			message: 'Aula corso deve contenere solo Numeri e Lettere'
 		}
 	};
@@ -43,6 +43,16 @@ $(document).ready(function() {
 		date: {
 			format: 'DD/MM/YYYY',
 			message: 'Data non valida, Formato DD/MM/YYYY'
+		},
+		callback: {
+			callback: function(value, validator) {
+				let $dataFineCorso = validator.getFieldElements('dataFineCorso')[0].value;
+				let dataInizioCorso = new Date(value);
+				let dataFineCorso = new Date($dataFineCorso);
+				let diffInGiorni = Number.parseInt(dataFineCorso.getTime() - dataInizioCorso.getTime()) / (60 * 60 * 24 * 1000);
+				return (diffInGiorni > 1);
+			},
+			message: 'La durata del corso deve essere di almeno 2 giorni'
 		}
 	};
 	let dataFineValidators = {
@@ -54,9 +64,8 @@ $(document).ready(function() {
 			message: 'Data non valida, Formato DD/MM/YYYY'
 		},
 		callback: {
-			callback: function(value, validator, $field) {
-				let $dataInizioCorso = validator.getFieldElements('dataInizioCorso');
-				console.log($dataInizioCorso);
+			callback: function(value, validator) {
+				let $dataInizioCorso = validator.getFieldElements('dataInizioCorso')[0].value;
 				let dataInizioCorso = new Date($dataInizioCorso);
 				let dataFineCorso = new Date(value);
 				let diffInGiorni = Number.parseInt(dataFineCorso.getTime() - dataInizioCorso.getTime()) / (60 * 60 * 24 * 1000);
@@ -77,15 +86,23 @@ $(document).ready(function() {
 				validators: noNumeriMax30Validators
 			},
 			dataInizioCorso: {
-				container: '#infodataInizioCorso',
+				container: '#infoDataInizioCorso',
 				validators: dataInizioValidators
 			},
 			dataFineCorso: {
-				container: '#infodataFineCorso',
+				container: '#infoDataFineCorso',
 				validators: dataFineValidators
 			},
-			commenti: {
-				container: '#infoCommenti',
+			costoCorso: {
+				container: '#infoCostoCorso',
+				validators: {
+					notEmpty: {
+						message: 'Il campo Costo non pu&ograve; essere vuoto'
+					}
+				}
+			},
+			commentiCorso: {
+				container: '#infoCommentiCorso',
 				validators: commentiValidators
 			},
 			aulaCorso: {
@@ -93,7 +110,7 @@ $(document).ready(function() {
 				validators: aulaValidators
 			},
 			codDocente: {
-				container: '#infoDocente',
+				container: '#infoCodDocente',
 				validators: selectOneValidators
 			}
 		}

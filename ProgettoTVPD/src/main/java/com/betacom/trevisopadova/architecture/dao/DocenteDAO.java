@@ -15,6 +15,9 @@ public class DocenteDAO implements DAOConstants{
 	private Statement stmt;
 	private ResultSet rs;
 	
+	private DocenteDAO() throws SQLException {
+	}
+	
 	public Docente[] getAll(Connection conn) throws SQLException {
 		Docente[] docenti = null;
 		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,

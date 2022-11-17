@@ -1,8 +1,15 @@
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Docente"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corso"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade"%>
 <%
+	AmministratoreFacade aF = AmministratoreFacade.getInstance();
+	Map<Long, Docente> mappaDocenti = new HashMap<Long, Docente>();
+	for (Docente d : aF.getAllDocente())
+		mappaDocenti.put(d.getCodDocente(), d);
 	
 	Cookie[] cookies = request.getCookies();
 	boolean flag = false;
@@ -33,7 +40,7 @@
 <body>
 <jsp:include page="include/navbar.jsp"></jsp:include>
 <div class="container">
-<form action="rimuoviCorsi" method="post">
+<form action="rimuoviPiuCorsi" method="post">
 <table class="table table-hover">
   <thead>
     <tr>
@@ -50,8 +57,8 @@
   <tbody>
 <%	
 	SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
-	AmministratoreFacade aF = AmministratoreFacade.getInstance(); 
 	for (Corso c : aF.getAllDopoDataOdiernaCorso(new Date())){
+		Docente d = mappaDocenti.get(c.getCodDocente());
 %>
     <tr>
       <th><%= c.getNomeCorso() %></th>
@@ -60,7 +67,7 @@
       <th><%= String.format("%.2f", c.getCostoCorso()) %></th>
       <th><%= (c.getCommentiCorso() == null) ? "nessun commento" : c.getCommentiCorso() %></th>
       <th><%= c.getAulaCorso() %></th>
-      <th><%= c.getCodDocente() %></th>
+      <th><%= d.getNomeDocente() + " " + d.getCognomeDocente() %></th>
       <th>
         <div class="checkbox">
           <label>
