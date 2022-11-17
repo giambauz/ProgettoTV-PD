@@ -1,29 +1,38 @@
-<%@page import="oracle.net.aso.af"%>
-<%@page import="com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade"%>
-<%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corso"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%!
-	SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+<%@page import="com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade"%>
+<%
+	
+	Cookie[] cookies = request.getCookies();
+	boolean flag = false;
+
+	for(int i=0; cookies !=null && i<cookies.length; i++) {
+		
+		if(cookies[i].getName().equals("nomeAdmin") && cookies[i+1].getName().equals("cognomeAdmin"))
+			flag = true;
+		
+	}
+	
+	if(session.getAttribute("nomeAdmin") != null && session.getAttribute("cognomeAdmin") != null)
+		flag = true;
+
+	if(flag) {
+	
 %>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<title>Report corsi</title>
+	<%@ include file="include/CDN.html" %>
+	<link rel="stylesheet" href="css/style.css">
+	<title>Report Corsisti</title>
 </head>
 <body>
+<jsp:include page="include/navbar.jsp"></jsp:include>
+<a href="include/logout.jsp">logout</a>
 <div class="container">
 <form action="rimuoviCorsi" method="post">
 <table class="table table-hover">
@@ -41,6 +50,7 @@
   </thead>
   <tbody>
 <%	
+	SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
 	AmministratoreFacade aF = AmministratoreFacade.getInstance(); 
 	for (Corso c : aF.getAllDopoDataOdiernaCorso(new Date())){
 %>
@@ -69,3 +79,10 @@
 </div>
 </body>
 </html>
+<%
+	} else {
+		
+		response.sendRedirect("index.jsp");
+		
+	}
+%>
