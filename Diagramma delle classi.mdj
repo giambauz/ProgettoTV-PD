@@ -8096,13 +8096,30 @@
 											"height": 13,
 											"text": "«int»+getCountCommenti()",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGEheyUHgP/tZE=",
+											"_parent": {
+												"$ref": "AAAAAAGEa1hT/DPam5A="
+											},
+											"model": {
+												"$ref": "AAAAAAGEheyUCgPq8J0="
+											},
+											"font": "Arial;13;0",
+											"left": 3129,
+											"top": 1454,
+											"width": 225.81787109375,
+											"height": 13,
+											"text": "«int»+getPostiDisponibiliCorsi(long id)",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 3124,
 									"top": 1374,
 									"width": 235.81787109375,
-									"height": 83
+									"height": 98
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -8142,7 +8159,7 @@
 							"left": 3124,
 							"top": 1296,
 							"width": 235.81787109375,
-							"height": 161,
+							"height": 176,
 							"nameCompartment": {
 								"$ref": "AAAAAAGEa1hT/DPUVrY="
 							},
@@ -14574,8 +14591,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 3035,
-									"top": 1343,
+									"left": 3036,
+									"top": 1348,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -14595,8 +14612,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 3036,
-									"top": 1328,
+									"left": 3037,
+									"top": 1333,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -14616,8 +14633,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 3034,
-									"top": 1372,
+									"left": 3033,
+									"top": 1377,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -14638,7 +14655,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 2974,
-									"top": 1340,
+									"top": 1343,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 30,
@@ -14658,8 +14675,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 2977,
-									"top": 1327,
+									"left": 2978,
+									"top": 1330,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -14680,7 +14697,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 2968,
-									"top": 1367,
+									"top": 1370,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -14700,8 +14717,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 3097,
-									"top": 1346,
+									"left": 3098,
+									"top": 1352,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -14721,7 +14738,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 3096,
-									"top": 1333,
+									"top": 1338,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -14741,7 +14758,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 3100,
-									"top": 1374,
+									"top": 1379,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -14788,7 +14805,7 @@
 								"$ref": "AAAAAAGEchGlEZ77omA="
 							},
 							"lineStyle": 1,
-							"points": "2948:1360;3123:1369",
+							"points": "2948:1363;3123:1375",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGEcs2/qtEU75I="
@@ -18073,7 +18090,8 @@
 							},
 							"name": "stmt",
 							"stereotype": "Statement",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -18083,7 +18101,8 @@
 							},
 							"name": "rs",
 							"stereotype": "ResultSet",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -18093,7 +18112,8 @@
 							},
 							"name": "conn",
 							"stereotype": "Connection",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -18141,6 +18161,27 @@
 							},
 							"name": "getCountCommenti",
 							"stereotype": "int"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGEheyUCgPq8J0=",
+							"_parent": {
+								"$ref": "AAAAAAGEZ2Mb/wr/C2o="
+							},
+							"name": "getPostiDisponibiliCorsi",
+							"documentation": "Ritorna il numero di posti disponibili per il corso con id parametro",
+							"stereotype": "int",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGEhe04MR1EgLs=",
+									"_parent": {
+										"$ref": "AAAAAAGEheyUCgPq8J0="
+									},
+									"name": "long id",
+									"type": ""
+								}
+							]
 						}
 					]
 				},
