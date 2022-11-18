@@ -364,12 +364,7 @@ if (session.getAttribute("statistica") == null) {
 				<table class="table table-striped table-lt">
 					<thead>
 						<tr>
-							<td>
-			                    <form action="/<%=application.getServletContextName()%>/infoCorsista" method="post">
-			                      <input type="hidden" name="codCorsista" id="codCorsista" value="<%=c.getCodCorsista()%>">
-			                      <input type="submit" name="submitCorsista" id="submitCorsista" value="<%=c.getCodCorsista()%>">
-			                    </form>
-			                 </td>
+							<td>Codice corsista</td>
 							<td>Nome</td>
 							<td>Cognome</td>
 							<td>Precedenti formativi</td>
@@ -380,8 +375,13 @@ if (session.getAttribute("statistica") == null) {
 						for (Corsista c : AmministratoreFacade.getInstance().getAllCorsista()) {
 						%>
 						<tr>
-							<td><%=c.getCodCorsista()%></td>
-							<td><%=c.getNomeCorsista()%></td>
+						<td>
+							 <form action="/<%=application.getServletContextName()%>/infoCorsista" method="post">
+		                      <input type="hidden" name="codCorsista" id="codCorsista" value="<%=c.getCodCorsista()%>">
+		                      <input type="submit" name="submitCorsista" id="submitCorsista" value="<%=c.getCodCorsista()%>">
+		                    </form>
+						</td>	
+						<td><%=c.getNomeCorsista()%></td>
 							<td><%=c.getCognomeCorsista()%></td>
 							<%
 							int prec = c.getPrecedentiFormativi();
