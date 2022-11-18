@@ -12,6 +12,9 @@
 	import="com.betacom.trevisopadova.businesscomponent.utilities.Statistiche"%>
 <%
 	
+	if (session.getAttribute("statistica") == null)
+		session.setAttribute("statistica", "null");
+
 	Cookie[] cookies = request.getCookies();
 	boolean flagAccesso = false;
 
@@ -27,23 +30,25 @@
 	else {
 	
 %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <%@ include file="include/CDN.html"%>
 <link rel="stylesheet" href="css/style.css">
-<meta charset="ISO-8859-1">
-<title>Statistiche</title>
+<title>Report Corsisti</title>
 </head>
 <body>
+
 	<jsp:include page="include/navbar.jsp"></jsp:include>
-	
+
 	<div class="container">
-		
+	
 		<header class="page-header report-header-lt">
-			<h3>Statistiche</h3>
+			<h3>Report corsisti iscritti ai corsi</h3>	
 		</header>
 	
 		<%
@@ -399,11 +404,11 @@
 							int prec = c.getPrecedentiFormativi();
 							if (prec == 1) {
 							%>
-							<td><i class="glyphicon glyphicon-ok"></i></td>
+							<td>Si</td>
 							<%
 							} else {
 							%>
-							<td><i class="glyphicon glyphicon-remove"></i></td>
+							<td>No</td>
 							<%
 							}
 							%>
@@ -562,6 +567,7 @@
 	<%@ include file="include/footer.html"%>
 </body>
 </html>
+
 <%
 	}
 %>

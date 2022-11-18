@@ -1,3 +1,6 @@
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
+<%@page import="com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade"%>
+
 <%
 	
 	Cookie[] cookies = request.getCookies();
@@ -15,8 +18,6 @@
 	else {
 	
 %>
-<%@page import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
-<%@page import="com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
