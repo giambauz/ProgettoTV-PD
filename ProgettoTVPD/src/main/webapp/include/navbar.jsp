@@ -1,3 +1,5 @@
+<%@page import="com.betacom.trevisopadova.businesscomponent.utilities.CookieSplitter"%>
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Amministratore"%>
 <nav class="navbar navbar-default navbar-fixed-top">
  	<div class="container-fluid">
     	<div class="navbar-header">
@@ -24,33 +26,32 @@
     				<a class="benvenuto_nav" href="#">
     					<span class="glyphicon glyphicon-user"></span>
     					<%
+    						String nome = null;
+    						String cognome = null;
+    						
     						if(session.getAttribute("sessionNominativo") != null) {
-    							String nominativo = (String)session.getAttribute("sessionNominativo");
-    							String[] split = nominativo.split(":");
-    					%>
-    					&nbsp;&nbsp;Benvenuto&nbsp;<%= split[0] %>&nbsp; <%= split[1] %>
-    					<%
-    						} else {
     							
-    							Cookie[] cookies = request.getCookies();
-    							boolean flagCookieNominativo = false;
-    							String[] splitted = null;
+    							String[] split = null;
+    							split = ((String)session.getAttribute("sessionNominativo")).split(":");
+    							nome = split[0];
+    							cognome = split[1];
     							
-    							for(int i=0; cookies !=null && i < cookies.length; i++) 
-    								if(cookies[i].getName().equals("cookieNominativo")){
-    									
-    									flagCookieNominativo = true;
-    									splitted = cookies[i].getValue().split(":");
-    									
-    								}
+    						}else{	
     							
-    							if(flagCookieNominativo){		
-    					%>
-    					&nbsp;&nbsp;Benvenuto&nbsp;<%= splitted[0] %>&nbsp;<%= splitted[1] %>
-    					<%
-    							}
+       							Cookie[] cookies = request.getCookies();
+       							String[] splitted = null;
+       							
+       							for(int i=0; cookies !=null && i < cookies.length; i++) 
+       								if(cookies[i].getName().equals("cookieNominativo")){
+       									
+       									Amministratore a = CookieSplitter.parseCookieAmministratore(cookies[i]);
+       									nome = a.getNomeAdmin();
+       									cognome = a.getCognomeAdmin();
+       									
+       								}
     						}
     					%>
+    					&nbsp;&nbsp;Benvenuto&nbsp;<%= nome %>&nbsp; <%= cognome %>
     				</a>
     			</li>
 				<li role="presentation">

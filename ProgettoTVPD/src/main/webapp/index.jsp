@@ -1,3 +1,5 @@
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Amministratore"%>
+<%@page import="com.betacom.trevisopadova.businesscomponent.utilities.CookieSplitter"%>
 <%
 
 	if(session.getAttribute("countTentativi") == null)
@@ -9,7 +11,6 @@
 		flagAccessoSessione = true;
 
 	boolean flagCookieNominativo = false;
-	boolean flagCognome = false;
 	boolean flagIsBlock = false;
 	
 	Cookie[] cookies = request.getCookies();
@@ -18,18 +19,18 @@
 		
 		if(cookies[i].getName().equals("cookieNominativo"))
 			flagCookieNominativo = true;
-		
+			
 		if(cookies[i].getName().equals("isBlock"))
 			flagIsBlock = true;
 		
 	}
 	
-	if(flagIsBlock || session.getAttribute("isblocK") != null)
+	if(flagIsBlock){
 		response.sendRedirect("error-page/accessonegato.jsp");
-		
-	if(flagCookieNominativo == true || flagAccessoSessione == true)
-		response.sendRedirect("reportCorsisti.jsp");
-	else {
+	} else {
+		if(flagCookieNominativo == true || flagAccessoSessione == true)
+			response.sendRedirect("reportCorsisti.jsp");
+		else {
 			
 %>
 
@@ -164,5 +165,6 @@
 </body>
 </html>
 <%
+		}
 	} 
 %>

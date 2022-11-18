@@ -11,9 +11,21 @@
 <%@page
 	import="com.betacom.trevisopadova.businesscomponent.utilities.Statistiche"%>
 <%
-if (session.getAttribute("statistica") == null) {
-	session.setAttribute("statistica", "null");
-}
+	
+	Cookie[] cookies = request.getCookies();
+	boolean flagAccesso = false;
+
+	for(int i=0; cookies != null && i < cookies.length; i++)
+		if(cookies[i].getName().equals("cookieNominativo"))
+			flagAccesso = true;
+	
+	if(session.getAttribute("sessionNominativo") != null)
+		flagAccesso = true;
+
+	if(!flagAccesso) 
+		response.sendRedirect("index.jsp");
+	else {
+	
 %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -550,3 +562,6 @@ if (session.getAttribute("statistica") == null) {
 	<%@ include file="include/footer.html"%>
 </body>
 </html>
+<%
+	}
+%>

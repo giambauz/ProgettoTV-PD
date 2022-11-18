@@ -13,7 +13,6 @@
 	if(!flagisBlock){
 		
 		session.setAttribute("countTentativi", null);
-		session.setAttribute("isBlock", null);
 		response.sendRedirect("../index.jsp");
 	
 	} else {

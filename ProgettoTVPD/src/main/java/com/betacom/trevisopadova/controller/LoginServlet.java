@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.betacom.trevisopadova.businesscomponent.model.Amministratore;
 import com.betacom.trevisopadova.businesscomponent.security.AlgoritmoCodiceAccesso;
+import com.betacom.trevisopadova.businesscomponent.utilities.CookieSplitter;
 import com.betacom.trevisopadova.businesscomponent.utilities.Login;
 
 
@@ -34,7 +35,6 @@ public class LoginServlet extends HttpServlet {
 		if(nomeAdmin != null && cognomeAdmin != null && codAdmin != null) {
 
 			Amministratore amministratore = null;
-			Cookie cookieNominativo = null;
 			
 			try {
 				
@@ -48,13 +48,8 @@ public class LoginServlet extends HttpServlet {
 						boolean ricordami = "on".equals(request.getParameter("ricordami"));
 						String nominativo = nomeAdmin+":"+cognomeAdmin;
 						
-						if(ricordami == true) {
-							
-							cookieNominativo = new Cookie("cookieNominativo", nominativo);
-							cookieNominativo.setMaxAge(60*5);
-							response.addCookie(cookieNominativo);
-							
-						}
+						if(ricordami == true) 
+							response.addCookie(CookieSplitter.createCookieAmministratore(amministratore));
 						
 						session.setAttribute("sessionNominativo", nominativo);
 						
@@ -68,9 +63,7 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("countTentativi", count-1);
 					
 					if((Integer)session.getAttribute("countTentativi") == 0) {
-						
-						session.setAttribute("isBlock", "true");
-						
+									
 						Cookie bloccato = new Cookie("isBlock", "block");
 						bloccato.setMaxAge(30);
 						response.addCookie(bloccato);

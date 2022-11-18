@@ -11,22 +11,15 @@
 
 	Cookie[] cookies = request.getCookies();
 	boolean flagAccesso = false;
-	boolean flagIsBlock = false;
 	
-	for(int i=0; cookies != null && i < cookies.length; i++) {
-		
+	for(int i=0; cookies != null && i < cookies.length; i++)
 		if(cookies[i].getName().equals("cookieNominativo"))
 			flagAccesso = true;
-		
-		if(cookies[i].getName().equals("isBlock"))
-			flagIsBlock = true;
-		
-	}
 	
 	if(session.getAttribute("sessionNominativo") != null)
 		flagAccesso = true;
 	
-	if(!flagAccesso || flagIsBlock) 
+	if(!flagAccesso) 
 		response.sendRedirect("index.jsp");
 	else {
 		
