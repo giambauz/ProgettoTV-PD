@@ -16,6 +16,17 @@ body {
   	color: #052E36;
 }
 
+table thead tr td {
+	font-weight: 700;
+}
+
+table tbody tr td {
+	font-weight: 400;
+}
+
+label {
+	font-weight: 400;
+}
 /*========= Login + Error page =========*/
 
 .wallpaper_gen {
@@ -208,6 +219,20 @@ body {
 .form-control-feedback {
 	right: 0.8em;
 }
+
+.has-feedback label ~ .form-control-feedback {
+  top: 27px;
+}
+
+.precedenti-formativi-lt {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.precedenti-formativi-lt input {
+	width: 2em;
+} 
 /*========= Report =========*/
  .report-header-lt {
 	border-bottom: 1px solid #052E36;
@@ -246,6 +271,10 @@ body {
 
 section {
 	margin-top: 40px;
+}
+
+.btn-statistica-lt {
+	margin-left: 0.1em;
 }
 
 /*========= navbar =========*/

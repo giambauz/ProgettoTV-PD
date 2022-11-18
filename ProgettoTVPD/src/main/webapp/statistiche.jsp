@@ -71,7 +71,7 @@
 				<option value="corsiDisponibili">Corsi con posti
 					disponibili</option>
 			</select> 
-			<button type="submit" value="Elabora statistica" class="btn btn-success">
+			<button type="submit" value="Elabora statistica" class="btn btn-success btn-statistica-lt">
 				<i class="glyphicon glyphicon-refresh"></i>
 				&nbsp;Elabora statistica
 			</button>
