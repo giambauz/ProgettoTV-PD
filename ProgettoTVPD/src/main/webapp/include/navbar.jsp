@@ -6,13 +6,19 @@
 	      		<span class="icon-bar"></span>
 	      		<span class="icon-bar"></span>
 	    	</button>
-      		<a class="navbar-brand" href="reportCorsisti.jsp" style="color: #F3F3F3 !important;">
+      		<a class="navbar-brand" href="reportCorsisti.jsp">
         		<i class="glyphicon glyphicon-calendar"></i>
   				&nbsp;&nbsp;&nbsp;Gestione corsi
       		</a>
     	</div>
-    	
+    
     	<div class="collapse navbar-collapse" id="myNavbar">
+    		
+    		<ul class="nav navbar-nav">
+       			<li class="nav_left"><a href="#">Nuovo corso</a></li>
+       			<li class="nav_left"><a href="#">Nuovo corsista</a></li>
+    		</ul>
+    	
     		<ul class="nav navbar-nav navbar-right">
     			<li role="presentation">
     				<a class="benvenuto_nav" href="#">

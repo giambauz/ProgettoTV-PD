@@ -43,7 +43,7 @@
 	<div class="container">
 	
 		<header class="page-header report-header-lt">
-			<h3>Report corsisti</h3>	
+			<h3>Report corsisti iscritti ai corsi</h3>	
 		</header>
 	
 		<div class="table-responsive">
@@ -54,26 +54,25 @@
 						<th>Nome</th>
 						<th>Cognome</th>
 						<th>Precedenti Formativi</th>
-						<th>Attualmente iscritti</th>
 					</tr>
 				</thead>
 				<tbody>
 				<%	
 					
-					Corsista[] c = AmministratoreFacade.getInstance().getAllCorsista();
-					Corsista[] cc = AmministratoreFacade.getInstance().getiscritti();
+					Corsista[] allCorsisti = AmministratoreFacade.getInstance().getAllCorsista();
+					Corsista[] iscritti = AmministratoreFacade.getInstance().getiscritti();
 					boolean flagicon = false;
 					
-					for (int i = 0; i < c.length; i++){	
+					for (int i = 0; i < iscritti.length; i++){	
 						
 				%>
 					<tr>
-						<td>#<%= c[i].getCodCorsista() %></td>
-						<td><%= c[i].getNomeCorsista()%></td>
-						<td><%= c[i].getCognomeCorsista()%></td>
+						<td>#<%= iscritti[i].getCodCorsista() %></td>
+						<td><%= iscritti[i].getNomeCorsista()%></td>
+						<td><%= iscritti[i].getCognomeCorsista()%></td>
 						<td style="width: 200px;">
 							<% 
-								if(c[i].getPrecedentiFormativi() == 1){
+								if(iscritti[i].getPrecedentiFormativi() == 1){
 							%>
 							<i class="glyphicon glyphicon-ok"></i>
 							<% 
@@ -84,23 +83,6 @@
 								} 
 							%>
 						</td>
-						<td style="width: 150px;">
-							<%
-								for(int j = 0; j < cc.length; j++)
-									if(c[i].getCodCorsista() == cc[j].getCodCorsista())
-										flagicon = true;
-								
-								if(flagicon){
-							%>
-							<i class="glyphicon glyphicon-ok"></i>
-							<% 
-								}else{ 
-							%>
-							<i class="glyphicon glyphicon-remove"></i>
-							<% 
-								}
-							%>
-						</td>
 					</tr>
 				<%
 					}
@@ -108,9 +90,6 @@
 				</tbody>
 			</table>
 		</div>
-		<a href="reportCorsi.jsp">
-			Report corsi
-		</a>
 	</div>
 	
 	<%@ include file="include/footer.html" %>

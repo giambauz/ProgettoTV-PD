@@ -8,25 +8,33 @@
 <%@page
 	import="com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade"%>
 <%
-AmministratoreFacade aF = AmministratoreFacade.getInstance();
-Map<Long, Docente> mappaDocenti = new HashMap<Long, Docente>();
-for (Docente d : aF.getAllDocente())
-	mappaDocenti.put(d.getCodDocente(), d);
 
-Cookie[] cookies = request.getCookies();
-boolean flag = false;
-
-for (int i = 0; cookies != null && i < cookies.length; i++) {
-
-	if (cookies[i].getName().equals("nomeAdmin") && cookies[i + 1].getName().equals("cognomeAdmin"))
-		flag = true;
-
-}
-
-if (session.getAttribute("nomeAdmin") != null && session.getAttribute("cognomeAdmin") != null)
-	flag = true;
-
-if (flag) {
+	Cookie[] cookies = request.getCookies();
+	boolean flagAccesso = false;
+	boolean flagIsBlock = false;
+	
+	for(int i=0; cookies != null && i < cookies.length; i++) {
+		
+		if(cookies[i].getName().equals("cookieNominativo"))
+			flagAccesso = true;
+		
+		if(cookies[i].getName().equals("isBlock"))
+			flagIsBlock = true;
+		
+	}
+	
+	if(session.getAttribute("sessionNominativo") != null)
+		flagAccesso = true;
+	
+	if(!flagAccesso || flagIsBlock) 
+		response.sendRedirect("index.jsp");
+	else {
+		
+		AmministratoreFacade aF = AmministratoreFacade.getInstance();
+		Map<Long, Docente> mappaDocenti = new HashMap<Long, Docente>();
+		for (Docente d : aF.getAllDocente())
+			mappaDocenti.put(d.getCodDocente(), d);
+	
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -92,12 +100,11 @@ if (flag) {
 			</div>
 		</form>
 	</div>
+	
+	<%@ include file="include/footer.html" %>
+	
 </body>
 </html>
 <%
-} else {
-
-response.sendRedirect("index.jsp");
-
-}
+	} 
 %>

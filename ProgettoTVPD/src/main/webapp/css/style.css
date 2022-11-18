@@ -237,9 +237,23 @@ body {
 	background-color: #F3F3F3 !important;
 }
 
+.navbar .navbar-brand {
+	color: #F3F3F3 !important;
+	border-right: 1px solid #F3F3F3;
+}
+
 .navbar-default .navbar-toggle:focus span,
 .navbar-default .navbar-toggle:hover span{
 	background-color: #052E36 !important;
+}
+.navbar .nav_left a{
+	color: #F3F3F3 !important;
+}
+.navbar .nav_left{
+	transition: .3s ease;
+}
+.navbar .nav_left:hover{
+	background-color: #052E36;
 }
 
 .navbar .benvenuto_nav{
@@ -260,60 +274,52 @@ body {
 
 /*========= Footer =========*/
 
+.scroll-to-top{
+	background: linear-gradient(92.49deg, #0C6677 0%, #052E36 100%);;
+  	position:fixed;
+  	bottom:-100px;
+  	right:40px;
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	cursor: pointer;
+  	visibility: hidden;
+  	opacity: 0;
+  	z-index: 100;
+  	padding: 15px;
+  	border-radius: 100%;
+  	transition: .3s ease;
+}
+.scroll-to-top:hover{
+  	transform: translateY(-10px);
+}
+.scroll-to-top i{
+  	position: relative;
+  	margin:auto;
+  	font-size: 32px;
+  	color: #F3F3F3;
+  	outline: none;
+}
+.scroll-to-top.active{
+  	bottom: 50px;
+  	visibility: visible;
+  	opacity: 1;
+}
+
 footer {
 	margin-top: 50px;
 	width: 100%;
-	background: linear-gradient(92.49deg, #0C6677 0%, #052E36 100%);;
+	background: linear-gradient(92.49deg, #0C6677 0%, #052E36 100%);
 	color: white;
 	padding: 10px 30px 10px 30px;
-}
-
-footer .box{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-footer .logo{
-    display: flex;
-    align-items: center;
-    padding: 0px;
-}
-footer #arrow{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-footer #arrow i{
-    background-color:#0C6677 ;
-    border-radius: 100%;
-    padding: 15px;
-    color:#F3F3F3;
-    cursor: pointer;
-    z-index:1;
-    transition: all 0.3s ease;
-}
-
-footer #arrow i:hover{
-    transform: scale(1.1);
-}
-
-.container-footer{
 	display: flex;
-	flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-}
-
-footer nav{
-	padding: 10px 30px;
-}
-
-footer nav ul li a{
-	color: #000000 !important;
+	justify-content: center;
+	align-items: center;
 }
 
 p.copyright {	
 	text-align: center;
+	margin: 0;
+	padding: 0;
 }
 
