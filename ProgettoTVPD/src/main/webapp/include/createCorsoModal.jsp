@@ -9,41 +9,36 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title w-100 font-weight-bold">Inserisci Corso</h4>
+					<h3 class="modal-title w-100 font-weight-bold">Inserisci Corso</h3>
 				</div>
 				<div class="modal-body mx-3">
 					<div class="form-group mb-5">
-						<i class="fas fa-user prefix grey-text"></i> 
-						<label data-error="wrong" data-success="right" for="nomeCorso">Nomecorso</label>
-						<input type="text" id="nomeCorso" name="nomeCorso" class="form-control validate">
+						<label for="nomeCorso">Nome corso</label>
+						<input type="text" id="nomeCorso" name="nomeCorso" class="form-control">
 						<div id="infoNomeCorso"></div>
 					</div>
 
 					<div class="form-group mb-5">
-						<i class="fas fa-user prefix grey-date"></i> 
-						<label data-error="wrong" data-success="right" for="dataInizioCorso">Data inizio corso</label>
-						<input type="date"id="dataInizioCorso" name="dataInizioCorso"class="form-control validate"> 
+						<label for="dataInizioCorso">Data inizio corso</label>
+						<input type="date" id="dataInizioCorso" name="dataInizioCorso"class="form-control"> 
 						<div id="infoDataInizioCorso"></div>
 					</div>
 
 					<div class="form-group mb-5">
-						<i class="fas fa-user prefix grey-date"></i> 
-						<label data-error="wrong" data-success="right" for="dataFineCorso">Data fine corso</label>
-						<input type="date" id="dataFineCorso" name="dataFineCorso"class="form-control validate">
+						<label for="dataFineCorso">Data fine corso</label>
+						<input type="date" id="dataFineCorso" name="dataFineCorso" class="form-control">
 						<div id="infoDataFineCorso"></div>
 					</div>
 				
 
-					<div class="form-group mb-5">
-						<i class="fas fa-envelope prefix grey-number"></i> 
-						<label data-error="wrong" data-success="right" for="costoCorso">Costo corso</label>
-						<input type="text" id="costoCorso" name="costoCorso" class="form-control validate">
+					<div class="form-group mb-5"> 
+						<label for="costoCorso">Costo corso</label>
+						<input type="text" id="costoCorso" name="costoCorso" class="form-control">
 						<div id="infoCostoCorso"></div>
 					</div>
 
 					<div class="form-group mb-5">
-						<i class="fas fa-envelope prefix grey-text"></i>
-						<label data-error="wrong" data-success="right" for="commentiCorso">Commenti corso</label>
+						<label for="commentiCorso">Commenti corso</label>
 						<textarea rows="3" cols="70" id="commentiCorso" name="commentiCorso" style="resize: none" class="form-control validate"></textarea>
 						<div id="infoCommentiCorso"></div>
 					</div>
@@ -56,9 +51,8 @@
 					</div>
 
 					<div class="form-group mb-5">
-						<i class="fas fa-envelope prefix grey-text"></i> 
-						<label data-error="wrong" data-success="right" for="codDocente">Docente</label>
-						<select id="codDocente" name="codDocente" class="form-control validate">
+						<label for="codDocente">Docente</label>
+						<select id="codDocente" name="codDocente" class="form-control">
 							<%
 								Docente[] docenti = AmministratoreFacade.getInstance().getAllDocente();
 								for (Docente d : docenti) {

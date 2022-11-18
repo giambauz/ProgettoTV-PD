@@ -10,6 +10,7 @@ body {
 	display: flex;
 	flex-direction: column;
   	justify-content: space-between;
+  	font-size: 16px;
   	font-family: 'Kanit', sans-serif;
   	background: #F3F3F3;
   	color: #052E36;
@@ -203,6 +204,10 @@ body {
 	padding: 30px !important;
 }
 
+/*========= Modal =========*/
+.form-control-feedback {
+	right: 0.8em;
+}
 /*========= Report =========*/
  .report-header-lt {
 	border-bottom: 1px solid #052E36;
