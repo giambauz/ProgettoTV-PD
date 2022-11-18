@@ -1,5 +1,9 @@
 /*========= General =========*/
 
+*{
+	transition: all .3s ease;
+}
+
 html{
 	position: relative;
 	min-height: 100%;

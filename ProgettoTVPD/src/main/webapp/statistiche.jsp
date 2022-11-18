@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corso"%>
 <%@page
 	import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
@@ -28,7 +30,10 @@
 	if(!flagAccesso) 
 		response.sendRedirect("index.jsp");
 	else {
-	
+		AmministratoreFacade aF = AmministratoreFacade.getInstance();
+		Map<Long, Docente> mappaDocenti = new HashMap<Long, Docente>();
+		for (Docente d : aF.getAllDocente())
+			mappaDocenti.put(d.getCodDocente(), d);
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -178,7 +183,7 @@
 							<td>Costo</td>
 							<td>Commento</td>
 							<td>Aula</td>
-							<td>Codice insegnante</td>
+							<td>Insegnante</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -196,7 +201,8 @@
 							<td><%=c.getCostoCorso()%></td>
 							<td><%=c.getCommentiCorso()%></td>
 							<td><%=c.getAulaCorso()%></td>
-							<td><%=c.getCodDocente()%></td>
+							<% Docente d = mappaDocenti.get(c.getCodDocente()); %>
+							<td><%=d.getNomeDocente()%> <%= d.getCognomeDocente() %></td>
 						</tr>
 						<%
 						}
@@ -469,7 +475,7 @@
 							<td><%=d.getCodDocente()%></td>
 							<td><%=d.getNomeDocente()%></td>
 							<td><%=d.getCognomeDocente()%></td>
-							<td><%=d.getCvDocente()%></td>
+							<td><a href="cv_pdf/<%=d.getCvDocente()%>"><%=d.getCvDocente() %></a></td>
 						</tr>
 						<%
 						}
@@ -521,7 +527,7 @@
 							<td>Costo</td>
 							<td>Commento</td>
 							<td>Aula</td>
-							<td>Codice insegnante</td>
+							<td>Insegnante</td>
 							<td>Posti disponibili</td>
 						</tr>
 					</thead>
@@ -541,7 +547,8 @@
 							<td><%=c.getCostoCorso()%></td>
 							<td><%=c.getCommentiCorso()%></td>
 							<td><%=c.getAulaCorso()%></td>
-							<td><%=c.getCodDocente()%></td>
+							<% Docente d = mappaDocenti.get(c.getCodDocente()); %>
+							<td><%=d.getNomeDocente()%> <%= d.getCognomeDocente() %></td>
 							<td><%= disp %></td>
 						</tr>
 						<% } %>
@@ -550,16 +557,21 @@
 			</div>
 			<% } %>
 			<section>
-			<a class="btn btn-warning btn_redirect" href="reportCorsisti.jsp">
-				<i class="glyphicon glyphicon-list-alt"></i>
-				Vai alla pagina di report corsisti
-			</a>
-			
-			<a class="btn btn-warning btn_redirect" href="reportCorsi.jsp">
-				<i class="glyphicon glyphicon-list-alt"></i>
-				Vai alla pagina di report corsi
-			</a>
-		</section>	
+				<a class="btn btn-warning btn_redirect" href="reportCorsisti.jsp">
+					<i class="glyphicon glyphicon-stats"></i>
+					Vai a report corsisti
+				</a>
+				
+				<a class="btn btn-warning btn_redirect" href="reportCorsi.jsp" >
+					<i class="glyphicon glyphicon-list-alt"></i>
+					Vai a report corsi
+				</a>
+				
+				<a class="btn btn-primary btn_redirect" href="statistiche.jsp" style="pointer-events: none; cursor: default; opacity: 0.8">
+					<i class="glyphicon glyphicon-stats"></i>
+					Vai a statistiche
+				</a>
+			</section>	
 	
 		</div>
 		

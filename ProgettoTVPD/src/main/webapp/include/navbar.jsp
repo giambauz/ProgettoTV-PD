@@ -27,7 +27,7 @@
     		</ul>
     	
     		<ul class="nav navbar-nav navbar-right">
-    			<li role="presentation">
+    			<li>
     				<a class="benvenuto_nav" href="#">
     					<span class="glyphicon glyphicon-user"></span>
     					<%
@@ -59,7 +59,7 @@
     					&nbsp;&nbsp;Benvenuto&nbsp;<%= nome %>&nbsp; <%= cognome %>
     				</a>
     			</li>
-				<li role="presentation">
+				<li>
 					<a class="logout_nav" href="logout.jsp">
 						Logout&nbsp;&nbsp;
 						<span class="glyphicon glyphicon-log-out"></span>
