@@ -387,11 +387,11 @@ if (session.getAttribute("statistica") == null) {
 							int prec = c.getPrecedentiFormativi();
 							if (prec == 1) {
 							%>
-							<td>Si</td>
+							<td><i class="glyphicon glyphicon-ok"></i></td>
 							<%
 							} else {
 							%>
-							<td>No</td>
+							<td><i class="glyphicon glyphicon-remove"></i></td>
 							<%
 							}
 							%>
