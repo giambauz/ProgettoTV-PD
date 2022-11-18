@@ -1,35 +1,33 @@
 <%
-		
-	if(session.getAttribute("tentativi") == null || (Integer)session.getAttribute("tentativi") == 0)
-		session.setAttribute("tentativi", (Integer)5);
+
+	if(session.getAttribute("countTentativi") == null)
+		session.setAttribute("countTentativi", (Integer)5);
 	
-	boolean flagNome = false;
+	boolean flagAccessoSessione = false;
+	
+	if(session.getAttribute("sessionNominativo") != null)
+		flagAccessoSessione = true;
+
+	boolean flagCookieNominativo = false;
 	boolean flagCognome = false;
-	boolean flagSessione = false;
-	boolean flagBloccato = false;
+	boolean flagIsBlock = false;
 	
 	Cookie[] cookies = request.getCookies();
 	
 	for(int i=0; cookies !=null && i < cookies.length; i++) {
 		
-		if(cookies[i].getName().equals("nomeAdmin"))
-			flagNome = true;
+		if(cookies[i].getName().equals("cookieNominativo"))
+			flagCookieNominativo = true;
 		
-		if(cookies[i].getName().equals("cognomeAdmin"))
-			flagCognome = true;
-		
-		if(cookies[i].getName().equals("bloccato") && cookies[i].getValue() != null)
-			flagBloccato = true;
+		if(cookies[i].getName().equals("isBlock"))
+			flagIsBlock = true;
 		
 	}
 	
-	if(flagBloccato)
+	if(flagIsBlock || session.getAttribute("isblocK") != null)
 		response.sendRedirect("error-page/accessonegato.jsp");
-	
-	if(session.getAttribute("nomeAdmin") != null && session.getAttribute("cognomeAdmin") != null)
-		flagSessione = true;
 		
-	if((flagNome == true && flagCognome == true) || flagSessione == true)
+	if(flagCookieNominativo == true || flagAccessoSessione == true)
 		response.sendRedirect("reportCorsisti.jsp");
 	else {
 			
@@ -132,11 +130,9 @@
 				
 				</script>
 				
-				<div class="form-group">
-					
-						<input type="checkbox" name="ricordami" id="ricordami">
-						<label style="margin: 0 !important;">&nbsp;&nbsp;Ricordami</label>
-					
+				<div class="form-group" style="display: flex;">
+					<input type="checkbox" name="ricordami" id="ricordami">
+					<label style="margin: 0 !important;">&nbsp;&nbsp;Ricordami</label>
 				</div>
 				
 				<div class="row" style="margin-top: 30px; text-align: center;">
@@ -147,10 +143,10 @@
 				</div>
 				
 				<%
-					if((Integer)session.getAttribute("tentativi") > 0 &&
-							(Integer)session.getAttribute("tentativi") != 5 ) {
+					if((Integer)session.getAttribute("countTentativi") > 0 &&
+							(Integer)session.getAttribute("countTentativi") != 5 ) {
 				%>
-				<p class="tentativi_login">Tentativi rimasti:&nbsp;<strong><%= session.getAttribute("tentativi") %></strong></p>
+				<p class="tentativi_login">Tentativi rimasti:&nbsp;<strong><%= session.getAttribute("countTentativi") %></strong></p>
 				<%
 					}
 				%>

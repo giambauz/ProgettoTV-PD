@@ -2,8 +2,6 @@ package com.betacom.trevisopadova.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,8 +34,7 @@ public class LoginServlet extends HttpServlet {
 		if(nomeAdmin != null && cognomeAdmin != null && codAdmin != null) {
 
 			Amministratore amministratore = null;
-			Cookie cookieNome = null;
-			Cookie cookieCognome = null;
+			Cookie cookieNominativo = null;
 			
 			try {
 				
@@ -49,46 +46,42 @@ public class LoginServlet extends HttpServlet {
 					if(amministratore.getNomeAdmin().equals(nomeAdmin) && amministratore.getNomeAdmin().equals(cognomeAdmin)) {
 						
 						boolean ricordami = "on".equals(request.getParameter("ricordami"));
+						String nominativo = nomeAdmin+","+cognomeAdmin;
 						
 						if(ricordami == true) {
 							
-							cookieNome = new Cookie("nomeAdmin", nomeAdmin);
-							cookieNome.setMaxAge(5);//60*60*24
-							response.addCookie(cookieNome);
-							
-							cookieCognome = new Cookie("cognomeAdmin", cognomeAdmin);
-							cookieCognome.setMaxAge(5);//60*60*24
-							response.addCookie(cookieCognome);
+							cookieNominativo = new Cookie("cookieNominativo", nominativo);
+							cookieNominativo.setMaxAge(60*5);
+							response.addCookie(cookieNominativo);
 							
 						}
 						
-						session.setAttribute("nomeAdmin", nomeAdmin);
-						session.setAttribute("cognomeAdmin", cognomeAdmin);
+						session.setAttribute("sessionNominativo", nominativo);
 						
 					}  
 						
 				} 
 				
-				if((session.getAttribute("nomeAdmin") != null && session.getAttribute("cognomeAdmin") != null) || 
-						(cookieNome != null && cookieCognome != null)) {
+				if(session.getAttribute("sessionNominativo") == null) {
 					
-					response.sendRedirect("reportCorsisti.jsp");
+					Integer count = (Integer)session.getAttribute("countTentativi");
+					session.setAttribute("countTentativi", count-1);
 					
-				} else {
-					Integer count = (Integer)session.getAttribute("tentativi");
-					session.setAttribute("tentativi", count-1);
-					
-					if((Integer)session.getAttribute("tentativi") == 0) {
-	
-						Cookie bloccato = new Cookie("bloccato", new SimpleDateFormat("dd/MM/yyyy_HH:mm:ss").format(Calendar.getInstance().getTime()));
-						bloccato.setMaxAge(60*60*24); //60*60*24
+					if((Integer)session.getAttribute("countTentativi") == 0) {
+						
+						session.setAttribute("isBlock", "true");
+						
+						Cookie bloccato = new Cookie("isBlock", "block");
+						bloccato.setMaxAge(30);
 						response.addCookie(bloccato);
 						
-						response.sendRedirect("error-page/accessonegato.jsp");
-					
-					} else {
-						response.sendRedirect("index.jsp");
 					}
+					
+					response.sendRedirect("index.jsp");
+					
+				} else {
+					
+					response.sendRedirect("reportCorsisti.jsp");
 					
 				}
 				
