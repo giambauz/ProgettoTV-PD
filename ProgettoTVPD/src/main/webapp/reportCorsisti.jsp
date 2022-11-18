@@ -42,12 +42,12 @@
 
 	<div class="container">
 	
-		<header class="page-header" style="border-bottom: 1px solid #052E36 !important">
+		<header class="page-header report-header-lt">
 			<h3>Report corsisti</h3>	
 		</header>
 	
 		<div class="table-responsive">
-			<table class="table table-striped">
+			<table class="table table-striped table-lt">
 				<thead>
 					<tr>
 						<th>Matricola</th>

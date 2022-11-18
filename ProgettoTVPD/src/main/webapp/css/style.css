@@ -203,6 +203,29 @@ body {
 	padding: 30px !important;
 }
 
+/*========= Report =========*/
+.report-header-lt {
+	border-bottom: 1px solid #052E36;
+}
+
+.table-lt tbody tr td {
+	font-weight: 300;
+	vertical-align: middle;
+}
+
+.table-lt th {
+	align-items: center;
+	vertical-align: unset;
+}
+
+.table-lt .checkbox {
+	text-align: center;
+}
+
+.table-lt i {
+	text-align: center;
+}
+
 /*========= navbar =========*/
 
 .navbar{
