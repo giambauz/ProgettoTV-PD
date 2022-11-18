@@ -133,6 +133,9 @@ else {
 			}
 			%>
 		</div>
+		<jsp:include page="include/otherPages.jsp">
+			<jsp:param name="currentPage" value="statistiche" />
+		</jsp:include>
 	</div>
 	<%@ include file="include/footer.html"%>
 </body>
