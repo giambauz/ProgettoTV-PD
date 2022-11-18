@@ -12,29 +12,28 @@ import javax.servlet.http.HttpServletResponse;
 import com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade;
 import com.betacom.trevisopadova.businesscomponent.model.CorsoCorsista;
 
-
 @WebServlet("/aggiungiCorsoCorsista")
 public class CreateCorsoCorsistaServlet extends HttpServlet {
 	private static final long serialVersionUID = -7039732590295486389L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CorsoCorsista cc = getCorsoCorsista(request);
-		if (cc != null) {
-			try {
-				AmministratoreFacade.getInstance().create(cc);
-				response.sendRedirect("reportCorsisti.jsp");
-			} catch (ClassNotFoundException | SQLException | IOException e) {
-				e.printStackTrace();
-				System.out.println("Motivo : " + e.getMessage());
-				throw new ServletException(e.getMessage());
-			}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			CorsoCorsista cc = getCorsoCorsista(request);
+			AmministratoreFacade.getInstance().create(cc);
+			response.sendRedirect("reportCorsisti.jsp");
+		} catch (ClassNotFoundException | SQLException | IOException e) {
+			e.printStackTrace();
+			System.out.println("Motivo : " + e.getMessage());
+			throw new ServletException(e.getMessage());
 		}
+
 	}
-	
+
 	private CorsoCorsista getCorsoCorsista(HttpServletRequest request) {
 		CorsoCorsista cc = null;
 		Long codCorso = Long.parseLong(request.getParameter("codCorso"));
-		Long codCorsista= Long.parseLong(request.getParameter("codCorsista"));			
+		Long codCorsista = Long.parseLong(request.getParameter("codCorsista"));
 		cc = new CorsoCorsista();
 		cc.setCodCorso(codCorso);
 		cc.setCodCorsista(codCorsista);

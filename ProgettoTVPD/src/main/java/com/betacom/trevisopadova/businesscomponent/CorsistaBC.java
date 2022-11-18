@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import com.betacom.trevisopadova.architecture.dao.CorsistaDAO;
 import com.betacom.trevisopadova.architecture.dbaccess.DBAccess;
+import com.betacom.trevisopadova.businesscomponent.idgenerator.CorsistaIdGenerator;
 import com.betacom.trevisopadova.businesscomponent.model.Corsista;
 
 public class CorsistaBC {
@@ -16,6 +17,7 @@ private Connection conn;
 	}
 	
 	public void create(Corsista corsista) throws ClassNotFoundException, IOException, SQLException{
+		corsista.setCodCorsista(CorsistaIdGenerator.getInstance().getNextId());
 		CorsistaDAO.getFactory().create(conn, corsista);
 	}
 	
