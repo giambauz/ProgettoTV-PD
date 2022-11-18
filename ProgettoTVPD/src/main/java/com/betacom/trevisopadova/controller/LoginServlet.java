@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 					if(amministratore.getNomeAdmin().equals(nomeAdmin) && amministratore.getNomeAdmin().equals(cognomeAdmin)) {
 						
 						boolean ricordami = "on".equals(request.getParameter("ricordami"));
-						String nominativo = nomeAdmin+","+cognomeAdmin;
+						String nominativo = nomeAdmin+":"+cognomeAdmin;
 						
 						if(ricordami == true) {
 							
