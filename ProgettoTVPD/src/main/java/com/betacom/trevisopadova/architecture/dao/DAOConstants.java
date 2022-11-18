@@ -11,7 +11,7 @@ public interface DAOConstants {
 	String DELETE_CORSO="delete from corso where codCorso=?";
 	String DELETE_CORSO_CORSISTA="delete from corso_corsista where codCorsista=?";
 	String SELECT_COUNT_CORSISTA="select count(*) from corsista";
-	String SELECT_CORSO_BY_CORSISTA="select * from corso where codCorso=(select codCorso from corso_corsista where codCorsista=?)";
+	String SELECT_CORSO_BY_CORSISTA="select * from corso where codCorso in (select codCorso from corso_corsista where codCorsista=?)";
 	String SELECT_CORSO_DOPO_DATAODIERNA="select * from corso where dataInizioCorso>?";
 	String SELECT_CORSO_PIU_FREQUENTATO="select * from corso where codCorso in (select corso from frequenze where totFrequenze >= all (select totFrequenze from frequenze))";
 	String SELECT_CORSO_ULTIMA_DATA="select dataInizioCorso from corso where dataInizioCorso >= all (select dataInizioCorso from corso)";
