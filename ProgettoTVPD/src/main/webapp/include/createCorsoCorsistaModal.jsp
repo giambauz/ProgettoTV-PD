@@ -1,3 +1,5 @@
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Corso"%>
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
 <%@page
 	import="com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade"%>
 <%@page
