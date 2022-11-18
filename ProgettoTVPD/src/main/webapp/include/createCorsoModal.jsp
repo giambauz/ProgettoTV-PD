@@ -37,7 +37,7 @@
 					<div class="form-group mb-5">
 						<i class="fas fa-envelope prefix grey-number"></i> 
 						<label data-error="wrong" data-success="right" for="costoCorso">Costo corso</label>
-						<input type="number" id="costoCorso" name="costoCorso" class="form-control validate">
+						<input type="text" id="costoCorso" name="costoCorso" class="form-control validate">
 						<div id="infoCostoCorso"></div>
 					</div>
 

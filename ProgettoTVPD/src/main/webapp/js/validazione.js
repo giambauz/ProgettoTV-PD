@@ -27,7 +27,7 @@ $(document).ready(function() {
 			max: 30
 		},
 		regexp: {
-			regexp: /^[a-zA-Z0-9]+$/,
+			regexp: /^[a-zA-Z0-9 ]+$/,
 			message: 'Aula corso deve contenere solo Numeri e Lettere'
 		}
 	};
@@ -74,6 +74,14 @@ $(document).ready(function() {
 			message: 'La durata del corso deve essere di almeno 2 giorni'
 		}
 	};
+	let costoCorsoValidators = {
+		notEmpty: {
+			message: 'Il campo Costo non pu&ograve; essere vuoto'
+		},
+		numeric: {
+			message: 'Immetti un valore numerico'
+		}
+	};
 	let corsoValidatorOptions = {
 		feedbackIcons: {
 			valid: 'glyphicon glyphicon-ok',
@@ -87,19 +95,25 @@ $(document).ready(function() {
 			},
 			dataInizioCorso: {
 				container: '#infoDataInizioCorso',
-				validators: dataInizioValidators
+				validators: dataInizioValidators,
+				onSuccess: function(e, data) {
+					if (!data.bv.isValidField('dataFineCorso')) {
+						data.bv.revalidateField('dataFineCorso');
+					}
+				}
 			},
 			dataFineCorso: {
 				container: '#infoDataFineCorso',
-				validators: dataFineValidators
+				validators: dataFineValidators,
+				onSuccess: function(e, data) {
+					if (!data.bv.isValidField('dataInizioCorso')) {
+						data.bv.revalidateField('dataInizioCorso');
+					}
+				}
 			},
 			costoCorso: {
 				container: '#infoCostoCorso',
-				validators: {
-					notEmpty: {
-						message: 'Il campo Costo non pu&ograve; essere vuoto'
-					}
-				}
+				validators: costoCorsoValidators
 			},
 			commentiCorso: {
 				container: '#infoCommentiCorso',
