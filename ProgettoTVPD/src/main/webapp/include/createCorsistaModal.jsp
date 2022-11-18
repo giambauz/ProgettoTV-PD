@@ -32,7 +32,7 @@
 
 					<div class="md-form precedenti-formativi-lt">
 						<label for="precedentiFormativi">Precedenti formativi</label>
-						<input type="checkbox" id="precedentiFormativi" class="form-control"> 
+						<input type="checkbox" id="precedentiFormativi" class="form-control" > 
 					</div>
 				</div>
 				
