@@ -83,7 +83,7 @@ public class CorsoDAO implements DAOConstants{
 				ResultSet.CONCUR_READ_ONLY);
 		ps.setDate(1, new java.sql.Date(data.getTime()));
 		rs = ps.executeQuery();
-		rs.last();				
+		rs.last();	
 				
 		corsi = new Corso[rs.getRow()];
 		rs.beforeFirst();
@@ -109,6 +109,34 @@ public class CorsoDAO implements DAOConstants{
 		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 				ResultSet.CONCUR_READ_ONLY);
 		rs = stmt.executeQuery(SELECT_CORSO_DISPONIBILE);
+		rs.last();				
+				
+		corsi = new Corso[rs.getRow()];
+		rs.beforeFirst();
+		for (int i = 0; rs.next(); i++) {
+			Corso corso = new Corso();
+			corso.setCodCorso(rs.getLong(1));
+			corso.setNomeCorso(rs.getString(2));
+			corso.setDataInizioCorso(new Date(rs.getDate(3).getTime()));
+			corso.setDataFineCorso(new Date(rs.getDate(4).getTime()));
+			corso.setCostoCorso(rs.getDouble(5));
+			corso.setCommentiCorso(rs.getString(6));
+			corso.setAulaCorso(rs.getString(7));
+			corso.setCodDocente(rs.getLong(8));
+			corsi[i] = corso;
+		}
+		rs.close();
+		
+		return corsi;
+	}
+	
+	public Corso[] getByCorsista(Connection conn, long idCorsista) throws SQLException {
+		Corso[] corsi = null;
+		ps = conn.prepareStatement(SELECT_CORSO_BY_CORSISTA,
+				ResultSet.TYPE_SCROLL_INSENSITIVE,
+				ResultSet.CONCUR_READ_ONLY);
+		ps.setLong(1, idCorsista);
+		rs = ps.executeQuery();
 		rs.last();				
 				
 		corsi = new Corso[rs.getRow()];

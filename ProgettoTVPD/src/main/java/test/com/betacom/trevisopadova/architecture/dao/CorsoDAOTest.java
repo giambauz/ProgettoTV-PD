@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -17,13 +18,19 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import com.betacom.trevisopadova.architecture.dao.CorsoDAO;
 import com.betacom.trevisopadova.architecture.dbaccess.DBAccess;
+import com.betacom.trevisopadova.businesscomponent.CorsistaBC;
+import com.betacom.trevisopadova.businesscomponent.CorsoCorsistaBC;
+import com.betacom.trevisopadova.businesscomponent.model.Corsista;
 import com.betacom.trevisopadova.businesscomponent.model.Corso;
+import com.betacom.trevisopadova.businesscomponent.model.CorsoCorsista;
 
 @TestMethodOrder(OrderAnnotation.class)
 class CorsoDAOTest {
 	private static Corso corso;
 	private static Corso corso2;
 	private static Connection conn;
+	private static CorsistaBC cstBC;
+	private static CorsoCorsistaBC ccBC;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -54,6 +61,22 @@ class CorsoDAOTest {
 		corso2.setCommentiCorso("Questo \u00E8 un commento");
 		corso2.setAulaCorso("Aula Prova");
 		corso2.setCodDocente(5);
+		
+		Corsista corsista = new Corsista();
+		corsista.setCodCorsista(1000);
+		corsista.setNomeCorsista("ABC");
+		corsista.setCognomeCorsista("DEF");
+		corsista.setPrecedentiFormativi(1);
+		
+		cstBC = new CorsistaBC();
+		cstBC.create(corsista);
+		
+		CorsoCorsista cc = new CorsoCorsista();
+		cc.setCodCorsista(1000);
+		cc.setCodCorso(1001);
+		
+		ccBC = new CorsoCorsistaBC();
+		ccBC.create(cc);
 	}
 
 	@Test
@@ -113,6 +136,20 @@ class CorsoDAOTest {
 	
 	@Test
 	@Order(5)
+	void testGetByCorsista() {
+		try {
+			System.out.println("Test GetByCorsista");
+			Corso[] corsi = CorsoDAO.getFactory().getByCorsista(conn, 1000);
+			for (Corso c : corsi)
+				System.out.println(c);
+		} catch (SQLException e) {
+			fail("Motivo: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	@Order(6)
 	void testDelete() {
 		try {
 			System.out.println("Test Delete");
@@ -128,6 +165,10 @@ class CorsoDAOTest {
 	static void tearDownAfterClass() throws Exception {
 		corso = null;
 		corso2 = null;
+		Statement stmt = conn.createStatement();
+		stmt.executeUpdate("delete from corsista where codCorsista = 1000");
+		stmt.executeUpdate("delete from corso_corsista where codCorsista = 1000 and codCorso = 1001");
+		conn.commit();
 		DBAccess.closeConnection();
 		conn = null;
 	}
