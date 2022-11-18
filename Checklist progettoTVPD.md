@@ -83,6 +83,8 @@ I dati inseriti per il discente devono passare le seguenti convalide lato server
 - [ ] h) aulacorso ( stringa, numeri e lettere, lunghezza max 30 )
 - [ ] i) docente ( deve essere presente nel database ) - utilizzare una select per associare il corso al docente
 
+4.
+
 - [ ] pulsante visualizza statistiche: apre una pagina in cui vengono riepilogate le seguenti informazioni relative ai record gi� memorizzati:
 - [x] I.    Numero corsisti totali. fatto
 - [x] II.   Nome del corso pi� frequentato fatto
@@ -98,7 +100,7 @@ I dati inseriti per il discente devono passare le seguenti convalide lato server
 - [x] - pulsante elimina corsi - apre una pagina in cui vengono elencati tutti i corsi disponibili con data maggiore alla data odierna.
 - [x] Il sistema deve permettere di scegliere i corsi da cancellare ( ovviamente i relativi dati associati verranno eliminati ).
 
-4.
+5.
 
 - [x]  In tutte le pagine deve essere presente in alto a destra il nome dell'utente amministratore e un pulsante per effettuare il logout.
 - [x] Il logout far� un redirect alla pagina di index
