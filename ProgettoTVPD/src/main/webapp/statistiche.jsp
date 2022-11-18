@@ -37,10 +37,10 @@ if (session.getAttribute("statistica") == null) {
 		<%
 			if (session.getAttribute("statistica").toString().equals("null")) {
 		%>
-		<form action="/<%=application.getServletContextName()%>/statistiche"method="get">
+		<form class="form-select" action="/<%=application.getServletContextName()%>/statistiche"method="get">
 			<select name="stats" class="btn btn-light">
-				<option value="null"></option>
-				<option value="nCorsistiTotali" selected>Numero corsisti
+				<option value="null" selected></option>
+				<option value="nCorsistiTotali">Numero corsisti
 					totali</option>
 				<option value="corsoPiuFrequentato">Corso pi&ugrave;
 					frequentato</option>
@@ -80,7 +80,7 @@ if (session.getAttribute("statistica") == null) {
 			<%
 			if (session.getAttribute("statistica").toString().equals("nCorsistiTotali")) {
 			%>
-			<form action="/<%=application.getServletContextName()%>/statistiche"method="get">
+			<form class="form-select" action="/<%=application.getServletContextName()%>/statistiche"method="get">
 			<select name="stats" class="btn btn-light">
 				<option value="null"></option>
 				<option value="nCorsistiTotali" selected>Numero corsisti
@@ -125,12 +125,12 @@ if (session.getAttribute("statistica") == null) {
 			<%
 			if (session.getAttribute("statistica").toString().equals("corsoPiuFrequentato")) {
 			%>
-			<form action="/<%=application.getServletContextName()%>/statistiche"method="get">
+			<form class="form-select" action="/<%=application.getServletContextName()%>/statistiche"method="get">
 			<select name="stats" class="btn btn-light">
 				<option value="null"></option>
-				<option value="nCorsistiTotali" selected>Numero corsisti
+				<option value="nCorsistiTotali" >Numero corsisti
 					totali</option>
-				<option value="corsoPiuFrequentato">Corso pi&ugrave;
+				<option value="corsoPiuFrequentato"selected>Corso pi&ugrave;
 					frequentato</option>
 				<option value="dataInizioUltimoCorso">Data di inizio
 					ultimo corso</option>
@@ -194,14 +194,14 @@ if (session.getAttribute("statistica") == null) {
 			<%
 			if (session.getAttribute("statistica").toString().equals("dataInizioUltimoCorso")) {
 			%>
-			<form action="/<%=application.getServletContextName()%>/statistiche"method="get">
+			<form class="form-select" action="/<%=application.getServletContextName()%>/statistiche"method="get">
 			<select name="stats" class="btn btn-light">
 				<option value="null"></option>
-				<option value="nCorsistiTotali" selected>Numero corsisti
+				<option value="nCorsistiTotali" >Numero corsisti
 					totali</option>
 				<option value="corsoPiuFrequentato">Corso pi&ugrave;
 					frequentato</option>
-				<option value="dataInizioUltimoCorso">Data di inizio
+				<option value="dataInizioUltimoCorso" selected>Data di inizio
 					ultimo corso</option>
 				<option value="durataMediaCorsi">Durata media dei corsi</option>
 				<option value="numeroCommenti">Numero di commenti</option>
@@ -243,16 +243,16 @@ if (session.getAttribute("statistica") == null) {
 			<%
 			if (session.getAttribute("statistica").toString().equals("durataMediaCorsi")) {
 			%>
-			<form action="/<%=application.getServletContextName()%>/statistiche"method="get">
+			<form class="form-select" action="/<%=application.getServletContextName()%>/statistiche"method="get">
 			<select name="stats" class="btn btn-light">
 				<option value="null"></option>
-				<option value="nCorsistiTotali" selected>Numero corsisti
+				<option value="nCorsistiTotali" >Numero corsisti
 					totali</option>
 				<option value="corsoPiuFrequentato">Corso pi&ugrave;
 					frequentato</option>
 				<option value="dataInizioUltimoCorso">Data di inizio
 					ultimo corso</option>
-				<option value="durataMediaCorsi">Durata media dei corsi</option>
+				<option value="durataMediaCorsi" selected>Durata media dei corsi</option>
 				<option value="numeroCommenti">Numero di commenti</option>
 				<option value="elencoCorsisti">Elenco dei corsisti</option>
 				<option value="docentePiuCorsi">Docente con pi&ugrave;
@@ -289,17 +289,17 @@ if (session.getAttribute("statistica") == null) {
 			<%
 			if (session.getAttribute("statistica").toString().equals("numeroCommenti")) {
 			%>
-			<form action="/<%=application.getServletContextName()%>/statistiche"method="get">
+			<form class="form-select" action="/<%=application.getServletContextName()%>/statistiche"method="get">
 			<select name="stats" class="btn btn-light">
 				<option value="null"></option>
-				<option value="nCorsistiTotali" selected>Numero corsisti
+				<option value="nCorsistiTotali" >Numero corsisti
 					totali</option>
 				<option value="corsoPiuFrequentato">Corso pi&ugrave;
 					frequentato</option>
 				<option value="dataInizioUltimoCorso">Data di inizio
 					ultimo corso</option>
 				<option value="durataMediaCorsi">Durata media dei corsi</option>
-				<option value="numeroCommenti">Numero di commenti</option>
+				<option value="numeroCommenti" selected>Numero di commenti</option>
 				<option value="elencoCorsisti">Elenco dei corsisti</option>
 				<option value="docentePiuCorsi">Docente con pi&ugrave;
 					corsi</option>
@@ -335,10 +335,10 @@ if (session.getAttribute("statistica") == null) {
 			<%
 			if (session.getAttribute("statistica").toString().equals("elencoCorsisti")) {
 			%>
-			<form action="/<%=application.getServletContextName()%>/statistiche"method="get">
+			<form class="form-select" action="/<%=application.getServletContextName()%>/statistiche"method="get">
 			<select name="stats" class="btn btn-light">
 				<option value="null"></option>
-				<option value="nCorsistiTotali" selected>Numero corsisti
+				<option value="nCorsistiTotali" >Numero corsisti
 					totali</option>
 				<option value="corsoPiuFrequentato">Corso pi&ugrave;
 					frequentato</option>
@@ -346,7 +346,7 @@ if (session.getAttribute("statistica") == null) {
 					ultimo corso</option>
 				<option value="durataMediaCorsi">Durata media dei corsi</option>
 				<option value="numeroCommenti">Numero di commenti</option>
-				<option value="elencoCorsisti">Elenco dei corsisti</option>
+				<option value="elencoCorsisti" selected>Elenco dei corsisti</option>
 				<option value="docentePiuCorsi">Docente con pi&ugrave;
 					corsi</option>
 				<option value="corsiDisponibili">Corsi con posti
@@ -409,10 +409,10 @@ if (session.getAttribute("statistica") == null) {
 			<%
 			if (session.getAttribute("statistica").toString().equals("docentePiuCorsi")) {
 			%>
-			<form action="/<%=application.getServletContextName()%>/statistiche"method="get">
+			<form class="form-select" action="/<%=application.getServletContextName()%>/statistiche"method="get">
 			<select name="stats" class="btn btn-light">
 				<option value="null"></option>
-				<option value="nCorsistiTotali" selected>Numero corsisti
+				<option value="nCorsistiTotali">Numero corsisti
 					totali</option>
 				<option value="corsoPiuFrequentato">Corso pi&ugrave;
 					frequentato</option>
@@ -421,7 +421,7 @@ if (session.getAttribute("statistica") == null) {
 				<option value="durataMediaCorsi">Durata media dei corsi</option>
 				<option value="numeroCommenti">Numero di commenti</option>
 				<option value="elencoCorsisti">Elenco dei corsisti</option>
-				<option value="docentePiuCorsi">Docente con pi&ugrave;
+				<option value="docentePiuCorsi"  selected>Docente con pi&ugrave;
 					corsi</option>
 				<option value="corsiDisponibili">Corsi con posti
 					disponibili</option>
@@ -467,10 +467,10 @@ if (session.getAttribute("statistica") == null) {
 			<%
 			if (session.getAttribute("statistica").toString().equals("corsiDisponibili")) {
 			%>
-			<form action="/<%=application.getServletContextName()%>/statistiche"method="get">
+			<form class="form-select" action="/<%=application.getServletContextName()%>/statistiche"method="get">
 			<select name="stats" class="btn btn-light">
 				<option value="null"></option>
-				<option value="nCorsistiTotali" selected>Numero corsisti
+				<option value="nCorsistiTotali" >Numero corsisti
 					totali</option>
 				<option value="corsoPiuFrequentato">Corso pi&ugrave;
 					frequentato</option>
@@ -481,7 +481,7 @@ if (session.getAttribute("statistica") == null) {
 				<option value="elencoCorsisti">Elenco dei corsisti</option>
 				<option value="docentePiuCorsi">Docente con pi&ugrave;
 					corsi</option>
-				<option value="corsiDisponibili">Corsi con posti
+				<option value="corsiDisponibili" selected>Corsi con posti
 					disponibili</option>
 			</select> 
 			<button type="submit" value="Elabora statistica" class="btn btn-success">
