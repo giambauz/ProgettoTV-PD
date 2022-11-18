@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corso"%>
 <%@page
 	import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
@@ -28,7 +30,10 @@
 	if(!flagAccesso) 
 		response.sendRedirect("index.jsp");
 	else {
-	
+		AmministratoreFacade aF = AmministratoreFacade.getInstance();
+		Map<Long, Docente> mappaDocenti = new HashMap<Long, Docente>();
+		for (Docente d : aF.getAllDocente())
+			mappaDocenti.put(d.getCodDocente(), d);
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -178,7 +183,7 @@
 							<td>Costo</td>
 							<td>Commento</td>
 							<td>Aula</td>
-							<td>Codice insegnante</td>
+							<td>Insegnante</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -196,7 +201,8 @@
 							<td><%=c.getCostoCorso()%></td>
 							<td><%=c.getCommentiCorso()%></td>
 							<td><%=c.getAulaCorso()%></td>
-							<td><%=c.getCodDocente()%></td>
+							<% Docente d = mappaDocenti.get(c.getCodDocente()); %>
+							<td><%=d.getNomeDocente()%> <%= d.getCognomeDocente() %></td>
 						</tr>
 						<%
 						}
@@ -521,7 +527,7 @@
 							<td>Costo</td>
 							<td>Commento</td>
 							<td>Aula</td>
-							<td>Codice insegnante</td>
+							<td>Insegnante</td>
 							<td>Posti disponibili</td>
 						</tr>
 					</thead>
@@ -541,7 +547,8 @@
 							<td><%=c.getCostoCorso()%></td>
 							<td><%=c.getCommentiCorso()%></td>
 							<td><%=c.getAulaCorso()%></td>
-							<td><%=c.getCodDocente()%></td>
+							<% Docente d = mappaDocenti.get(c.getCodDocente()); %>
+							<td><%=d.getNomeDocente()%> <%= d.getCognomeDocente() %></td>
 							<td><%= disp %></td>
 						</tr>
 						<% } %>
