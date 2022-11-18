@@ -57,7 +57,7 @@
 				</div>
 				<div class="modal-footer d-flex justify-content-center">
 					<input type="submit" class="btn btn-success" value="Aggiungi">
-					<input type="reset" class="btn btn-warning" value="Reset">
+					<input type="reset" class="btn btn-warning" id="resetCorsoCorsistaForm" value="Reset">
 				</div>
 			</div>
 		</form>

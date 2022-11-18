@@ -130,6 +130,9 @@ $(document).ready(function() {
 		}
 	};
 	$('#corsoForm').bootstrapValidator(corsoValidatorOptions);
+	$('#resetCorsoForm').on('click', function(e) {
+		$('#corsoForm').bootstrapValidator('resetForm');
+	});
 	let corsistaValidatorOptions = {
 		feedbackIcons: {
 			valid: 'glyphicon glyphicon-ok',
@@ -166,4 +169,7 @@ $(document).ready(function() {
 		}
 	};
 	$('#corsoCorsistaForm').bootstrapValidator(corsoCorsistaValidatorOptions);
-})
+	$('#resetCorsoCorsistaForm').on('click', function(e) {
+		$('#corsoCorsistaForm').bootstrapValidator('resetForm');
+	});
+});
