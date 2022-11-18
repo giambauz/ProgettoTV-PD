@@ -19,11 +19,4 @@ insert into corso values(1001, 'Informatica', 	'11-DIC-2022','10-GEN-2023', 1000
 insert into corso values(1002, 'Java', 			'10-OTT-2022','10-NOV-2022', 1000, null, 'Aula2', 1);
 insert into corso values(1003, 'C#', 			'01-GEN-2023','10-FEB-2023', 1000, null, 'Aula4', 1);
 insert into corso values(1004, 'JavaScript', 	'01-GEN-2023','15-FEB-2023', 1000, null, 'Aula5', 1);
-insert into corso values(1005, 'abc', 			'01-FEB-2023','10-MAR-2023', 1000, null, 'Aula6', 1);
-insert into corso values(1006, 'dfe', 			'01-APR-2023','10-APR-2023', 1000, null, 'Aula7', 1);
-insert into corso values(1007, 'ghi', 			'01-MAG-2023','10-GIU-2023', 1000, null, 'Aula8', 1);
-insert into corso values(1008, 'jks', 			'01-AGO-2023','10-SET-2023', 1000, null, 'Aula9', 1);
-insert into corso values(1009, 'xyz', 			'01-LUG-2023','10-SET-2023', 1000, null, 'Aula10', 1);
-insert into corso values(1010, 'akak', 			'01-GEN-2023','10-FEB-2023', 1000, null, 'Aula11', 1);
-insert into corso values(1011, 'Corso Spec. Java', '01-GEN-2023','10-FEB-2023', 1000, 'Corso avanzato per chi ha già esperienza in Java', 'Aula11', 1);
-insert into corso values(1012, 'SPAM', '01-GEN-2023','10-FEB-2023', 1000, 'Corso avanzato per chi ha già esperienza in Java,Corso avanzato per chi ha già esperienza in Java,Corso avanzato per chi ha già esperienza in Java,Corso avanzato per chi ha già esperienza in Java', 'Aula11', 1);
+

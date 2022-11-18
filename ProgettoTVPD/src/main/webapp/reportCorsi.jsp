@@ -59,7 +59,7 @@
 							<th>Costo</th>
 							<th>Commenti</th>
 							<th>Aula</th>
-							<th>Docente</th>
+							<th>Docente + cv</th>
 							<th>
 								<button type="submit" value="Cancella selezionati" class="btn btn-danger btn-sm">
 									<i class="glyphicon glyphicon-trash"></i>
@@ -82,7 +82,7 @@
 							<td><%=String.format("%.2f", c.getCostoCorso())%></td>
 							<td><%=(c.getCommentiCorso() == null) ? "nessun commento" : c.getCommentiCorso()%></td>
 							<td><%=c.getAulaCorso()%></td>
-							<td><%=d.getNomeDocente() + " " + d.getCognomeDocente()%></td>
+							<td><%=d.getNomeDocente() + " " + d.getCognomeDocente()%> (<a href="cv_pdf/<%= d.getCvDocente() %>">cv</a>)</td>
 							<td>
 								<div class="checkbox">
 									<label> <input type="checkbox" name="codCorso"
@@ -101,13 +101,18 @@
 		
 		<section>
 			<a class="btn btn-warning btn_redirect" href="reportCorsisti.jsp">
+				<i class="glyphicon glyphicon-stats"></i>
+				Vai a report corsisti
+			</a>
+			
+			<a class="btn btn-primary btn_redirect" href="reportCorsi.jsp" style="pointer-events: none; cursor: default; opacity: 0.8">
 				<i class="glyphicon glyphicon-list-alt"></i>
-				Vai alla pagina di report corsisti
+				Vai a report corsi
 			</a>
 			
 			<a class="btn btn-warning btn_redirect" href="statistiche.jsp">
 				<i class="glyphicon glyphicon-stats"></i>
-				Vai alla pagina delle statistiche
+				Vai a statistiche
 			</a>
 		</section>
 		
