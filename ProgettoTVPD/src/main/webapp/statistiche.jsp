@@ -289,7 +289,7 @@
 				<table class="table table-striped table-lt">
 					<thead>
 						<tr>
-							<td>Data inizio ultimo corso</td>
+							<td>Durata media corsi</td>
 						</tr>
 					</thead>
 					<tbody>
