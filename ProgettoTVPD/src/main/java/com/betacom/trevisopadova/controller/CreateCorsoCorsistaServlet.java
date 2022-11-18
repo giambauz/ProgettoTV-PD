@@ -22,7 +22,7 @@ public class CreateCorsoCorsistaServlet extends HttpServlet {
 		if (cc != null) {
 			try {
 				AmministratoreFacade.getInstance().create(cc);
-				response.sendRedirect("test.jsp");
+				response.sendRedirect("reportCorsisti.jsp");
 			} catch (ClassNotFoundException | SQLException | IOException e) {
 				e.printStackTrace();
 				System.out.println("Motivo : " + e.getMessage());
