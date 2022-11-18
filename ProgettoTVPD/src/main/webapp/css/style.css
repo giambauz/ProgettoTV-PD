@@ -226,6 +226,19 @@ body {
 	text-align: center;
 }
 
+/*========= Statistiche =========*/
+.statistiche-lt {
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+.search-fields-lt {
+	display: flex;
+	align-items: center;
+	text-align: left;
+	margin: 3vh 0 3vh 0;
+}
+
 /*========= navbar =========*/
 
 .navbar{
