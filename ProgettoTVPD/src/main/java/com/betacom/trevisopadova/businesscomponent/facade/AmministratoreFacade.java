@@ -59,7 +59,12 @@ public class AmministratoreFacade {
 		corsoBC = new CorsoBC();
 		return corsoBC.getDisponibili();
 	}
-
+	
+	public Corso[] getByCorsistaCorso(long id)
+			throws ClassNotFoundException, SQLException, IOException {
+		corsoBC = new CorsoBC();
+		return corsoBC.getByCorsista(id);
+	}
 	
 	public Corso[] getAllCorso()
 			throws ClassNotFoundException, SQLException, IOException {

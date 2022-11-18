@@ -37,5 +37,9 @@ public class CorsoBC {
 	public Corso[] getDisponibili() throws SQLException {
 		return CorsoDAO.getFactory().getDisponibili(conn);
 	}
+	
+	public Corso[] getByCorsista(long idCorsista) throws SQLException {
+		return CorsoDAO.getFactory().getByCorsista(conn, idCorsista);
+	}
 
 }
