@@ -25,8 +25,10 @@
     					<span class="glyphicon glyphicon-user"></span>
     					<%
     						if(session.getAttribute("sessionNominativo") != null) {
+    							String nominativo = (String)session.getAttribute("sessionNominativo");
+    							String[] split = nominativo.split(":");
     					%>
-    					&nbsp;&nbsp;Benvenuto&nbsp;<%= session.getAttribute("sessionNominativo") %>
+    					&nbsp;&nbsp;Benvenuto&nbsp;<%= split[0] %>&nbsp; <%= split[1] %>
     					<%
     						} else {
     							

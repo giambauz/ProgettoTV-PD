@@ -49,6 +49,7 @@
 </head>
 <body>
 	<jsp:include page="include/navbar.jsp"></jsp:include>
+	
 	<div class="container">
 		<header class="page-header report-header-lt">
 			<h3>Report corsi</h3>
@@ -56,7 +57,7 @@
 		
 		<form action="rimuoviPiuCorsi" method="post">
 			<div class="table-responsive">
-				<table class="table table-striped table-lt">
+				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>Nome</th>
@@ -66,8 +67,13 @@
 							<th>Commenti</th>
 							<th>Aula</th>
 							<th>Docente</th>
-							<th><input type="submit" value="Cancella selezionati"
-								class="btn btn-warning"></th>
+							<th>
+								<button type="submit" value="Cancella selezionati" class="btn btn-danger btn-sm">
+									<i class="glyphicon glyphicon-trash"></i>
+									&nbsp;Cancella selezionati
+								</button>
+								
+							</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -99,6 +105,19 @@
 				</table>
 			</div>
 		</form>
+		
+		<section>
+			<a class="btn btn-warning btn_redirect" href="reportCorsisti.jsp">
+				<i class="glyphicon glyphicon-list-alt"></i>
+				Vai alla pagina di report corsisti
+			</a>
+			
+			<a class="btn btn-warning btn_redirect" href="statistiche.jsp">
+				<i class="glyphicon glyphicon-stats"></i>
+				Vai alla pagina delle statistiche
+			</a>
+		</section>
+		
 	</div>
 	
 	<%@ include file="include/footer.html" %>

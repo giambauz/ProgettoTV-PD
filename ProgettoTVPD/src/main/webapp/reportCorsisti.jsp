@@ -91,12 +91,17 @@
 			</table>
 		</div>
 		
-		<div class="">
-			<a class="btn btn-warning" href="reportCorsi.jsp">
-				<i class="glyphicon glyphicon-calendar"></i>
+		<section>
+			<a class="btn btn-warning btn_redirect" href="reportCorsi.jsp">
+				<i class="glyphicon glyphicon-list-alt"></i>
 				Vai alla pagina di report corsi
 			</a>
-		</div>
+			
+			<a class="btn btn-warning btn_redirect" href="statistiche.jsp">
+				<i class="glyphicon glyphicon-stats"></i>
+				Vai alla pagina delle statistiche
+			</a>
+		</section>
 		
 	</div>
 	

@@ -204,10 +204,13 @@ body {
 }
 
 /*========= Report =========*/
-/* .report-header-lt {
+ .report-header-lt {
 	border-bottom: 1px solid #052E36;
 }
-
+.checkbox{
+	margin: 0 !important;
+}
+/*
 .table-lt tbody tr td {
 	font-weight: 300;
 	vertical-align: middle;
@@ -230,13 +233,6 @@ body {
 .statistiche-lt {
 	display: flex !important;
 	flex-direction: column !important;
-}
-
-.search-fields-lt {
-	display: flex;
-	align-items: center;
-	text-align: left;
-	margin: 3vh 0 3vh 0;
 }
 
 /*========= navbar =========*/
@@ -308,6 +304,7 @@ body {
 }
 .scroll-to-top i{
   	position: relative;
+  	line-height: 0;
   	margin:auto;
   	font-size: 32px;
   	color: #F3F3F3;
@@ -336,3 +333,6 @@ p.copyright {
 	padding: 0;
 }
 
+.btn_redirect {
+	color: #F3F3F3 !important;
+}
