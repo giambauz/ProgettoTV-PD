@@ -37,6 +37,8 @@ class CorsistaDAOTest {
 		try {
 			CorsistaDAO.getFactory().create(conn, corsista);
 			System.out.println(CorsistaDAO.getFactory().getCount(conn));
+			Corsista c = CorsistaDAO.getFactory().getById(conn, corsista.getCodCorsista());
+			System.out.println(c.toString());
 			Corsista[] corsisti = CorsistaDAO.getFactory().getAll(conn);
 			for(int i=0;i<corsisti.length;i++) {
 				System.out.println(corsisti[i].toString());

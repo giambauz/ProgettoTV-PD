@@ -1,6 +1,7 @@
 package com.betacom.trevisopadova.architecture.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,7 +11,7 @@ import javax.sql.rowset.RowSetProvider;
 
 import com.betacom.trevisopadova.businesscomponent.model.Corsista;
 
-public class CorsistaDAO implements DAOConstants,Validator{
+public class CorsistaDAO implements DAOConstants{
 	private CachedRowSet rowSet;
 	private Statement stmt;
 	private ResultSet rs;
@@ -45,6 +46,27 @@ public class CorsistaDAO implements DAOConstants,Validator{
 			sql.printStackTrace();
 			System.out.println("Motivo: " + sql.getMessage());
 		}
+	}
+	
+	public Corsista getById(Connection conn,long id) {
+		Corsista corsista = null;
+		try {
+			PreparedStatement ps = conn.prepareStatement(SELECT_CORSISTA_BY_ID);
+			ps.setLong(1, id);
+			rs = ps.executeQuery();
+			corsista = new Corsista();
+			rs.next();
+			corsista.setCodCorsista(rs.getLong(1));
+			corsista.setNomeCorsista(rs.getString(2));
+			corsista.setCognomeCorsista(rs.getString(3));
+			corsista.setPrecedentiFormativi(rs.getInt(4));
+			rs.close();
+			ps.close();
+		}catch(SQLException sql) {
+			sql.printStackTrace();
+			System.out.println("Motivo: " + sql.getMessage());
+		}
+		return corsista;
 	}
 	
 	public Corsista[] getAll(Connection conn) throws SQLException {
@@ -99,12 +121,6 @@ public class CorsistaDAO implements DAOConstants,Validator{
 		}
 		rs.close();
 		return corsisti;
-	}
-
-	@Override
-	public void validate(Corsista entity) {
-		
-		
 	}
 	
 }

@@ -1,6 +1,8 @@
+<%@page import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corso"%>
 <%
 Corso[] corsiFrequentati = new Corso[(int) request.getAttribute("totale")];
+Corsista corsista = (Corsista)request.getAttribute("corsista");
 for (int i = 0; i < corsiFrequentati.length; i++)
 	corsiFrequentati[i] = (Corso) request.getAttribute("corsoFrequentato" + i);
 %>
@@ -20,7 +22,7 @@ for (int i = 0; i < corsiFrequentati.length; i++)
 	<div class="container">
 
 		<header class="page-header report-header-lt">
-			<h3>Riepilogo Corsi</h3>
+			<h3>Riepilogo corsi di <b><%=  corsista.getNomeCorsista() %> <%= corsista.getCognomeCorsista()%></b></h3>
 		</header>
 
 		<div class="table-responsive">

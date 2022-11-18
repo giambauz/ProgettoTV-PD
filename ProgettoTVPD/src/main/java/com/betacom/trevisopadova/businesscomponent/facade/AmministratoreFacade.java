@@ -100,4 +100,9 @@ public class AmministratoreFacade {
 		corsistaBC = new CorsistaBC();
 		return corsistaBC.getIscritti();
 	}
+	
+	public Corsista getCorsistaById(long id) throws ClassNotFoundException, IOException, SQLException {
+		corsistaBC = new CorsistaBC();
+		return corsistaBC.getById(id);
+	}
 }

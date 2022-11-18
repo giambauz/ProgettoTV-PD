@@ -30,4 +30,8 @@ private Connection conn;
 	public Corsista[] getIscritti() throws SQLException{
 		return CorsistaDAO.getFactory().getIscritti(conn);
 	}
+	
+	public Corsista getById(long id) throws SQLException {
+		return CorsistaDAO.getFactory().getById(conn, id);
+	}
 }
