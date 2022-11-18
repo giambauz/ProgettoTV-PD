@@ -1,48 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<div class="modal fade" id="createCorsistaModal" tabindex="-1" role="dialog"
-	aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="createCorsistaModal" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header text-center">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title w-100 font-weight-bold">Inserisci
-					Corsista</h4>
-			</div>
-			<div class="modal-body mx-3">
-				<div class="md-form mb-5">
-					<i class="fas fa-user prefix grey-text"></i> <input type="text"
-						id="orangeForm-name" class="form-control validate"> <label
-						data-error="wrong" data-success="right" for="orangeForm-name">Nome
-						corsista</label>
+	
+		<form action="aggiungiCorso" method="post" id="corsoForm">
+			<div class="modal-content">
+			
+				<div class="modal-header text-center">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					
+					<h3 class="modal-title">
+						Inserisci Corsista
+					</h3>
 				</div>
-				<br>
 				
-				<div class="md-form mb-5">
-					<i class="fas fa-envelope prefix grey-text"></i> <input type="text"
-						id="orangeForm-name" class="form-control validate"> <label
-						data-error="wrong" data-success="right" for="orangeForm-name">Cognome
-						corsista</label>
-				</div>
-				<br>
+				<div class="modal-body mx-3">
+					<div class="md-form mb-5">
+						<label for="nomeCorsista">Nome corsista</label>
+						<input type="text" id="nomeCorsista" class="form-control">
+					</div>
 
-				<div class="md-form mb-5">
-					<i class="fas fa-envelope prefix grey-text"></i> <input
-						type="checkbox" id="orangeForm-checkbox"
-						class="form-control validate"> <label data-error="wrong"
-						data-success="right" for="orangeForm-checkbox">Precedenti
-						formativi</label>
-				</div>
-				<br>
+					<div class="md-form mb-5"> 
+						<label for="cognomeCorsista">Cognome corsista</label>
+						<input type="text" id="cognomeCorsista" class="form-control">
+					</div>
 
+					<div class="md-form precedenti-formativi-lt">
+						<label for="precedentiFormativi">Precedenti formativi</label>
+						<input type="checkbox" id="precedentiFormativi" class="form-control"> 
+					</div>
+				</div>
+				
+				<div class="modal-footer d-flex justify-content-center">
+					<input type="submit" class="btn btn-success" value="Aggiungi">
+					<input type="reset" class="btn btn-warning" value="Reset">
+				</div>
 			</div>
-			<div class="modal-footer d-flex justify-content-center">
-				<button class="btn btn-deep-orange">Aggiungi</button>
-			</div>
-		</div>
+		</form>
 	</div>
 </div>

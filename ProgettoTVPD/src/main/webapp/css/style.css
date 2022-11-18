@@ -155,6 +155,15 @@ label {
 	color: #F3F3F3;
 }
 
+.login-ricordami-lt {
+	display: flex;
+	align-items: center;
+}
+
+.login-ricordami-lt label{
+	margin-bottom: 0;
+}
+
 @media (max-width: 560px){
 	
 	.titolo_login {
@@ -222,6 +231,10 @@ label {
 /*========= Modal =========*/
 .form-control-feedback {
 	right: 0.8em;
+}
+
+.has-feedback .form-control {
+    padding-right: 0.8em;
 }
 
 .has-feedback label ~ .form-control-feedback {
