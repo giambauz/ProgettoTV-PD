@@ -90,6 +90,14 @@
 				</tbody>
 			</table>
 		</div>
+		
+		<div class="">
+			<a class="btn btn-warning" href="reportCorsi.jsp">
+				<i class="glyphicon glyphicon-calendar"></i>
+				Vai alla pagina di report corsi
+			</a>
+		</div>
+		
 	</div>
 	
 	<%@ include file="include/footer.html" %>
