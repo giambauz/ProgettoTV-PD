@@ -151,6 +151,9 @@ $(document).ready(function() {
 		}
 	};
 	$('#corsistaForm').bootstrapValidator(corsistaValidatorOptions);
+	$('#resetCorsistaForm').on('click', function(e) {
+		$('#corsistaForm').bootstrapValidator('resetForm');
+	});
 	let corsoCorsistaValidatorOptions = {
 		feedbackIcons: {
 			valid: 'glyphicon glyphicon-ok',
