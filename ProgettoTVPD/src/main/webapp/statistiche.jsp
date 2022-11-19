@@ -556,22 +556,31 @@
 				</table>
 			</div>
 			<% } %>
-			<section>
+			
+			<div class="container-fluid btn_navigazione">
+		
+			<div class="box">
 				<a class="btn btn-warning btn_redirect" href="reportCorsisti.jsp">
 					<i class="glyphicon glyphicon-stats"></i>
 					Vai a report corsisti
 				</a>
-				
-				<a class="btn btn-warning btn_redirect" href="reportCorsi.jsp" >
+			</div>
+			
+			<div class="box">
+				<a class="btn btn-warning btn_redirect" href="reportCorsi.jsp">
 					<i class="glyphicon glyphicon-list-alt"></i>
 					Vai a report corsi
 				</a>
-				
-				<a class="btn btn-primary btn_redirect" href="statistiche.jsp" style="pointer-events: none; cursor: default; opacity: 0.8">
+			</div>
+			
+			<div class="box">
+				<a class="btn btn-primary btn_redirect btn_block" href="statistiche.jsp">
 					<i class="glyphicon glyphicon-stats"></i>
 					Vai a statistiche
 				</a>
-			</section>	
+			</div>
+			
+		</div>
 	
 		</div>
 		

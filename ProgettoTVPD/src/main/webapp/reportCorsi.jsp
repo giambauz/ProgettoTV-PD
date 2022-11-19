@@ -47,74 +47,79 @@
 		<header class="page-header report-header-lt">
 			<h3>Report corsi</h3>
 		</header>
-		
-		<form action="rimuoviPiuCorsi" method="post">
-			<div class="table-responsive">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Nome</th>
-							<th>Data inizio</th>
-							<th>Data fine</th>
-							<th>Costo</th>
-							<th>Commenti</th>
-							<th>Aula</th>
-							<th>Docente + cv</th>
-							<th>
-								<button type="submit" value="Cancella selezionati" class="btn btn-danger btn-sm">
-									<i class="glyphicon glyphicon-trash"></i>
-									&nbsp;Cancella selezionati
-								</button>
-								
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<%
-						SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
-						for (Corso c : aF.getAllDopoDataOdiernaCorso(new Date())) {
-							Docente d = mappaDocenti.get(c.getCodDocente());
-						%>
-						<tr>
-							<td><%=c.getNomeCorso()%></td>
-							<td><%=formatDate.format(c.getDataInizioCorso())%></td>
-							<td><%=formatDate.format(c.getDataFineCorso())%></td>
-							<td><%=String.format("%.2f", c.getCostoCorso())%></td>
-							<td><%=(c.getCommentiCorso() == null) ? "nessun commento" : c.getCommentiCorso()%></td>
-							<td><%=c.getAulaCorso()%></td>
-							<td><%=d.getNomeDocente() + " " + d.getCognomeDocente()%> (<a href="cv_pdf/<%= d.getCvDocente() %>">cv</a>)</td>
-							<td>
-								<div class="checkbox">
-									<label> <input type="checkbox" name="codCorso"
-										value="<%=c.getCodCorso()%>"> Seleziona
-									</label>
-								</div>
-							</td>
-						</tr>
-						<%
-						}
-						%>
-					</tbody>
-				</table>
-			</div>
+		<form action="rimuoviPiuCorsi" class="responsive_table" method="post">
+			<table class="table table-striped">	
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Data inizio</th>
+						<th>Data fine</th>
+						<th>Costo</th>
+						<th>Commenti</th>
+						<th>Aula</th>
+						<th>Docente + cv</th>
+						<th>
+							<button type="submit" value="Cancella selezionati" class="btn btn-danger btn-sm">
+								<i class="glyphicon glyphicon-trash"></i>
+								&nbsp;Cancella selezionati
+							</button>
+							
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+					for (Corso c : aF.getAllDopoDataOdiernaCorso(new Date())) {
+						Docente d = mappaDocenti.get(c.getCodDocente());
+					%>
+					<tr>
+						<td><%=c.getNomeCorso()%></td>
+						<td><%=formatDate.format(c.getDataInizioCorso())%></td>
+						<td><%=formatDate.format(c.getDataFineCorso())%></td>
+						<td><%=String.format("%.2f", c.getCostoCorso())%></td>
+						<td><%=(c.getCommentiCorso() == null) ? "nessun commento" : c.getCommentiCorso()%></td>
+						<td><%=c.getAulaCorso()%></td>
+						<td><%=d.getNomeDocente() + " " + d.getCognomeDocente()%> (<a href="cv_pdf/<%= d.getCvDocente() %>">cv</a>)</td>
+						<td>
+							<div class="checkbox">
+								<label> <input type="checkbox" name="codCorso"
+									value="<%=c.getCodCorso()%>"> Seleziona
+								</label>
+							</div>
+						</td>
+					</tr>
+					<%
+					}
+					%>
+				</tbody>
+			</table>
 		</form>
 		
-		<section>
-			<a class="btn btn-warning btn_redirect" href="reportCorsisti.jsp">
-				<i class="glyphicon glyphicon-stats"></i>
-				Vai a report corsisti
-			</a>
+		<div class="container-fluid btn_navigazione">
+		
+			<div class="box">
+				<a class="btn btn-warning btn_redirect" href="reportCorsisti.jsp">
+					<i class="glyphicon glyphicon-stats"></i>
+					Vai a report corsisti
+				</a>
+			</div>
 			
-			<a class="btn btn-primary btn_redirect" href="reportCorsi.jsp" style="pointer-events: none; cursor: default; opacity: 0.8">
-				<i class="glyphicon glyphicon-list-alt"></i>
-				Vai a report corsi
-			</a>
+			<div class="box">
+				<a class="btn btn-primary btn_redirect btn_block" href="reportCorsi.jsp">
+					<i class="glyphicon glyphicon-list-alt"></i>
+					Vai a report corsi
+				</a>
+			</div>
 			
-			<a class="btn btn-warning btn_redirect" href="statistiche.jsp">
-				<i class="glyphicon glyphicon-stats"></i>
-				Vai a statistiche
-			</a>
-		</section>
+			<div class="box">
+				<a class="btn btn-warning btn_redirect" href="statistiche.jsp">
+					<i class="glyphicon glyphicon-stats"></i>
+					Vai a statistiche
+				</a>
+			</div>
+			
+		</div>
 		
 	</div>
 	

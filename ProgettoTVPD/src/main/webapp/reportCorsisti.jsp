@@ -39,8 +39,8 @@
 			<h3>Report corsisti iscritti ai corsi</h3>	
 		</header>
 	
-		<div class="table-responsive">
-			<table class="table table-striped table-lt">
+		<div class="table-responsive responsive_table">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>Matricola</th>
@@ -84,24 +84,30 @@
 			</table>
 		</div>
 		
-		<section>
+		<div class="container-fluid btn_navigazione">
+		
+			<div class="box">
+				<a class="btn btn-primary btn_redirect btn_block" href="reportCorsisti.jsp">
+					<i class="glyphicon glyphicon-stats"></i>
+					Vai a report corsisti
+				</a>
+			</div>
 			
-			<a class="btn btn-primary btn_redirect" href="reportCorsisti.jsp" style="pointer-events: none; cursor: default; opacity: 0.8">
-				<i class="glyphicon glyphicon-stats"></i>
-				Vai a report corsisti
-			</a>
+			<div class="box">
+				<a class="btn btn-warning btn_redirect" href="reportCorsi.jsp">
+					<i class="glyphicon glyphicon-list-alt"></i>
+					Vai a report corsi
+				</a>
+			</div>
 			
-			<a class="btn btn-warning btn_redirect" href="reportCorsi.jsp">
-				<i class="glyphicon glyphicon-list-alt"></i>
-				Vai a report corsi
-			</a>
+			<div class="box">
+				<a class="btn btn-warning btn_redirect" href="statistiche.jsp">
+					<i class="glyphicon glyphicon-stats"></i>
+					Vai a statistiche
+				</a>
+			</div>
 			
-			<a class="btn btn-warning btn_redirect" href="statistiche.jsp">
-				<i class="glyphicon glyphicon-stats"></i>
-				Vai a statistiche
-			</a>
-			
-		</section>
+		</div>
 		
 	</div>
 	

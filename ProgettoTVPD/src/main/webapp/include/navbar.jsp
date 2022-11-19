@@ -4,7 +4,7 @@
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Docente"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.utilities.CookieSplitter"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Amministratore"%>
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-fixed-top">
  	<div class="container-fluid">
     	<div class="navbar-header">
     		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -14,7 +14,6 @@
 	    	</button>
       		<a class="navbar-brand" href="reportCorsisti.jsp">
         		<i class="glyphicon glyphicon-calendar"></i>
-  				&nbsp;&nbsp;&nbsp;Gestione corsi
       		</a>
     	</div>
     
@@ -56,7 +55,7 @@
        								}
     						}
     					%>
-    					&nbsp;&nbsp;Benvenuto&nbsp;<%= nome %>&nbsp; <%= cognome %>
+    					<%= nome %>&nbsp; <%= cognome %>
     				</a>
     			</li>
 				<li>

@@ -31,10 +31,9 @@
 						<div id="infoCognomeCorsista"></div>
 					</div>
 
-					<div class="form-group precedenti-formativi-lt">
-						<label for="precedentiFormativi">Precedenti formativi</label> <input
-							type="checkbox" id="precedentiFormativi"
-							name="precedentiFormativi" class="form-control">
+					<div class="form-group">
+						<label for="precedentiFormativi">Precedenti formativi</label> 
+						<input type="checkbox" id="precedentiFormativi" name="precedentiFormativi" class="form-control precedentiFormativi_check">
 						<div id="infoNomeCorso"></div>
 					</div>
 				</div>
