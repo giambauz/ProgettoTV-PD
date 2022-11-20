@@ -1,6 +1,8 @@
 package com.betacom.trevisopadova.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.betacom.trevisopadova.architecture.dbaccess.DBAccess;
 import com.betacom.trevisopadova.businesscomponent.facade.AmministratoreFacade;
 import com.betacom.trevisopadova.businesscomponent.model.Corso;
 
@@ -21,8 +24,16 @@ public class DeleteMultipleCorsoServlet extends HttpServlet {
 		Corso[] corsi = getCorsi(request);
 		if (corsi != null) {
 			try {
-				for (Corso c : corsi)
-					AmministratoreFacade.getInstance().delete(c);
+				for (Corso c : corsi) {
+				Connection conn = DBAccess.getConnection();
+				PreparedStatement ps = conn.prepareStatement("delete from corso_corsista where codCorso=?");
+				ps.setLong(1, c.getCodCorso());
+				ps.execute();
+				conn.commit();
+				ps.close();
+				conn.close();
+				AmministratoreFacade.getInstance().delete(c);
+				}
 				System.out.println(request.getHeader("Referer"));
 			} catch (ClassNotFoundException | SQLException | IOException e) {
 				e.printStackTrace();
