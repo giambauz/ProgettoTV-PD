@@ -4,7 +4,7 @@
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Docente"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.utilities.CookieSplitter"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Amministratore"%>
-<nav class="navbar navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
  	<div class="container-fluid">
     	<div class="navbar-header">
     		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
