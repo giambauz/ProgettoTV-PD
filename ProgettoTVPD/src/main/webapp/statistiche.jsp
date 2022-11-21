@@ -44,7 +44,7 @@
 <head>
 <%@ include file="include/CDN.html"%>
 <link rel="stylesheet" href="css/style.css">
-<title>Report Corsisti</title>
+<title>Statistiche</title>
 </head>
 <body>
 
@@ -53,7 +53,7 @@
 	<div class="container">
 	
 		<header class="page-header report-header-lt">
-			<h3>Report corsisti iscritti ai corsi</h3>	
+			<h3>Statistiche</h3>	
 		</header>
 	
 		<%
