@@ -39,6 +39,7 @@ public class CookieSplitter implements DAOConstants {
 					new String(encoder.encode(nominativo.getNomeAdmin().getBytes(choosenCharset)), choosenCharset), separator,
 					new String(encoder.encode(nominativo.getCognomeAdmin().getBytes(choosenCharset)), choosenCharset));
 			cookie = new Cookie(name, value);
+			cookie.setMaxAge(60*60*8);
 		}
 		return cookie;
 	}
