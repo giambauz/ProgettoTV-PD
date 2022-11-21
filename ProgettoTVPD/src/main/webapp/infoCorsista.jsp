@@ -1,3 +1,5 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corsista"%>
 <%@page import="com.betacom.trevisopadova.businesscomponent.model.Corso"%>
 <%
@@ -44,20 +46,22 @@ for (int i = 0; i < corsiFrequentati.length; i++)
 					for (int i = 0; i < corsiFrequentati.length; i++) {
 					%>
 					<tr>
-						<th><%=corsiFrequentati[i].getCodCorso()%></th>
-						<th><%=corsiFrequentati[i].getNomeCorso()%></th>
-						<th><%=corsiFrequentati[i].getDataInizioCorso()%></th>
-						<th><%=corsiFrequentati[i].getDataFineCorso()%></th>
-						<th><%=corsiFrequentati[i].getCostoCorso()%></th>
-						<th><%=corsiFrequentati[i].getCommentiCorso()%></th>
-						<th><%=corsiFrequentati[i].getAulaCorso()%></th>
-						<th><%=corsiFrequentati[i].getCodDocente()%></th>
+						<td><%=corsiFrequentati[i].getCodCorso()%></td>
+						<td><%=corsiFrequentati[i].getNomeCorso()%></td>
+						<% DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, Locale.ITALY);%>
+						<td><%=df.format(corsiFrequentati[i].getDataInizioCorso())%></td>
+						<td><%=df.format(corsiFrequentati[i].getDataFineCorso())%></td>
+						<td><%=corsiFrequentati[i].getCostoCorso()%></td>
+						<td><%=corsiFrequentati[i].getCommentiCorso()%></td>
+						<td><%=corsiFrequentati[i].getAulaCorso()%></td>
+						<td><%=corsiFrequentati[i].getCodDocente()%></td>
 					</tr>
 					<%
 					}
 					%>
 				</tbody>
 			</table>
+			<a href="#" onclick="window.history.back()">Torna indietro</a>
 		</div>
 	</div>
 	<%@ include file="include/footer.html"%>
